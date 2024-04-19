@@ -1,4 +1,3 @@
-
 <div class="popup_container" >
     <section class="rk_popup login_popup" style="display: none;">
         <div class="main_page_login_section login_section">
@@ -18,21 +17,21 @@
                     <span class="user_icon">
                         <i class="fa fa-lock" aria-hidden="true"></i>
                     </span>
-                    <input type="tel" class="user-input" placeholder="Mobile No">
+                    <input type="tel" class="user-input" placeholder="Mobile No" id="mobile_no">
                 </div>
                 <div class="input_con f-password">
                     <span class="user_icon">
                         <i class="fa fa-lock" aria-hidden="true"></i>
                     </span>
-                    <input type="password" class="pass-input" placeholder="Password">
+                    <input type="password" class="pass-input" placeholder="Password" id="password">
                 </div>
             </div>
             <div class="btn_container">
-                <button class="reg-button">Sign In</button>
+                <button class="reg-button" id="login_btn">Sign In</button>
             </div>
         </div>
     </section>
-    <section class="rk_popup signUp_popup  " style="display: none;">
+    <section class="rk_popup signUp_popup" style="display: none;">
         <div class="main_page_login_section">
             <span class="pop_close cls_close_popup">
                 <i class="fa fa-times" aria-hidden="true"></i>
@@ -43,35 +42,35 @@
                     <span class="user_icon">
                         <i class="fa fa-user" aria-hidden="true"></i>
                     </span>
-                    <input type="text" class="name-input" placeholder="Name">
+                    <input type="text" class="name-input" placeholder="Name" id="name">
                 </div>
                 <div class="input_con email">
                     <span class="user_icon">
                         <i class="fa fa-mobile email_icon" aria-hidden="true"></i>
                     </span>
-                    <input type="tel" class="email-input" placeholder="Mobile No">
+                    <input type="tel" class="email-input" placeholder="Mobile No" id="mobile_no">
                 </div>
                 <div class="input_con username">
                     <span class="user_icon">
                         <i class="fa fa-lock" aria-hidden="true"></i>
                     </span>
-                    <input type="text" class="user-input" placeholder="City">
+                    <input type="text" class="user-input" placeholder="City" id="city">
                 </div>
                 <div class="input_con f-password">
                     <span class="user_icon">
                         <i class="fa fa-lock" aria-hidden="true"></i>
                     </span>
-                    <input type="text" class="pass-input" placeholder="State">
+                    <input type="text" class="pass-input" placeholder="State" id="state">
                 </div>
                 <div class="input_con f-password">
                     <span class="user_icon">
                         <i class="fa fa-lock" aria-hidden="true"></i>
                     </span>
-                    <input type="password" class="password-input2" placeholder="Password">
+                    <input type="password" class="password-input2" placeholder="Password" id="password">
                 </div>
             </div>
             <div class="btn_container">
-                <button class="reg-button">Sign Up</button>
+                <button class="reg-button" id="register_btn">Sign Up</button>
             </div>
             <div class="bottom_cont">
                 <h2 class="bc_h2">One of us?</h2>

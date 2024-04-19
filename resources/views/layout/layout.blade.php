@@ -6,7 +6,8 @@
         <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="{{asset('/css/custom_styles.css')}}" />
-        <title>Play Today</title>
+        <link rel="stylesheet" type="text/css" href="{{asset('/assets/css/toaster.css')}}">
+        <title>Practice</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
     <body>
@@ -14,6 +15,7 @@
         @yield('content')
         @include('footer')
         @include('popups')
+        @include('scripts')
 
         <script src="{{asset('/js/script.js')}}"></script>
     </body>
