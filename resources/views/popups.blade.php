@@ -15,9 +15,9 @@
             <div class="fields">
                 <div class="input_con username">
                     <span class="user_icon">
-                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <i class="fa fa-mobile" aria-hidden="true"></i>
                     </span>
-                    <input type="tel" class="user-input" placeholder="Mobile No" id="mobile_no">
+                    <input type="tel" class="user-input" placeholder="Mobile No" id="mobile">
                 </div>
                 <div class="input_con f-password">
                     <span class="user_icon">
@@ -46,19 +46,19 @@
                 </div>
                 <div class="input_con email">
                     <span class="user_icon">
-                        <i class="fa fa-mobile email_icon" aria-hidden="true"></i>
+                        <i class="fa fa-mobile" aria-hidden="true"></i>
                     </span>
                     <input type="tel" class="email-input" placeholder="Mobile No" id="mobile_no">
                 </div>
                 <div class="input_con username">
                     <span class="user_icon">
-                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <i class="fa fa-city email_icon" aria-hidden="true"></i>
                     </span>
                     <input type="text" class="user-input" placeholder="City" id="city">
                 </div>
                 <div class="input_con f-password">
                     <span class="user_icon">
-                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <i class="fa fa-city email_icon" aria-hidden="true"></i>
                     </span>
                     <input type="text" class="pass-input" placeholder="State" id="state">
                 </div>

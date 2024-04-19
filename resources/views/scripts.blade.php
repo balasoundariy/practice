@@ -27,7 +27,7 @@
         const city = $('#city').val();
         const state = $('#state').val();
         const password = $('#password').val();
-
+        console.log(mobile_no)
         if (name == '' && mobile_no == '' && city == '' && state == '' && password == '') {
             toastr.error('Please enter the details');
         } else if (name == '' || mobile_no == '' || city == '' || state == '' || password == '') {

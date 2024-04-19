@@ -58,19 +58,19 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'mobile_no' => ['required'],
-            'password' => ['required']
-        ]);
+//        $validator = Validator::make($request->all(), [
+//            'mobile_no' => ['required'],
+//            'password' => ['required']
+//        ]);
+//
+//        if ($validator->fails()) {
+//            return Response()->json([
+//                'status'=>201,
+//                'message'=>$validator->errors()->first()
+//            ]);
+//        }
 
-        if ($validator->fails()) {
-            return Response()->json([
-                'status'=>201,
-                'message'=>$validator->errors()->first()
-            ]);
-        }
-
-        $user = User::where('mobile_no',$request->mobile_no)->first();
+        $user = User::where('mobile_no',$request->mobile)->first();
         if($user){
             if(Hash::check($request->password, $user->password)){
                 Auth::loginUsingId($user->id);
