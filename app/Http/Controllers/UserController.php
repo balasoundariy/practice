@@ -72,7 +72,7 @@ class UserController extends Controller
 
         $user = User::where('mobile_no',$request->mobile)->first();
         if($user){
-            if(Hash::check($request->password, $user->password)){
+            if(Hash::check($request->sign_in_password, $user->password)){
                 Auth::loginUsingId($user->id);
                 return Response()->json([
                     'status' => 200,
