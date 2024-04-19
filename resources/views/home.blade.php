@@ -12,9 +12,9 @@
 <h1 class="mc_sw_p"> Start Playing</h2>
 <p class="mc_p"> with your best emotions</p>
 
-<button class="choose_btn">  choose ticket </button>
+<button class="choose_btn">   <a class="logout_clk" href="{{route('ticket')}}"> Choose ticket </a>  </button>
 
-<div> </div>
+<div class="lottery_succes"> <p> lottery_succes</p></div>
 
 </div>
 

@@ -18,5 +18,5 @@ Route::post('/register', '\App\Http\Controllers\UserController@register')->name(
 Route::post('/login', '\App\Http\Controllers\UserController@login')->name('login');
 Route::get('/logout', '\App\Http\Controllers\UserController@logout')->name('logout');
 Route::get('/ticket', '\App\Http\Controllers\TicketController@showTickets')->name('ticket');
-Route::post('/ticket-details', '\App\Http\Controllers\TicketController@ticketDetails')->name('ticket_details');
-Route::post('/summary', '\App\Http\Controllers\TicketController@summary')->name('summary');
+Route::get('/ticket-details', '\App\Http\Controllers\TicketController@ticketDetails')->name('ticket_details');
+Route::get('/summary', '\App\Http\Controllers\TicketController@summary')->name('summary');

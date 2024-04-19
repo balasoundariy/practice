@@ -79,4 +79,20 @@
             </div>
         </div>
     </section>
+
+    <section class="rk_popup success_popup" style="display: none;">
+
+    <div class="main_container">
+    
+<div class="lp_main_banner"> <img src="/img/winner.png" class="cart" alt="cart"> </div>
+
+<h1 class="lp_sw_p"> Lottery</h2>
+<p class="lp_p">Placed <br> successfully !</p>
+
+<button class="lp_choose_btn"> <a href="{{route('home')}}"> Home </a>  </button>
+
+
+</div>
+    </section>
+
 </div>
