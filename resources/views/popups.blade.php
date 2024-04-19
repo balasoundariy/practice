@@ -23,7 +23,7 @@
                     <span class="user_icon">
                         <i class="fa fa-lock" aria-hidden="true"></i>
                     </span>
-                    <input type="password" class="pass-input" placeholder="Password" id="password">
+                    <input type="password" class="pass-input" placeholder="Password" id="password_sign_in">
                 </div>
             </div>
             <div class="btn_container">
@@ -66,7 +66,7 @@
                     <span class="user_icon">
                         <i class="fa fa-lock" aria-hidden="true"></i>
                     </span>
-                    <input type="password" class="password-input2" placeholder="Password" id="password">
+                    <input type="password" class="password-input2" placeholder="Password" id="password_sign_up">
                 </div>
             </div>
             <div class="btn_container">

@@ -26,7 +26,7 @@
         const mobile_no = $('#mobile_no').val();
         const city = $('#city').val();
         const state = $('#state').val();
-        const password = $('#password').val();
+        const password = $('#password_sign_up').val();
         console.log(mobile_no)
         if (name == '' && mobile_no == '' && city == '' && state == '' && password == '') {
             toastr.error('Please enter the details');
@@ -85,8 +85,8 @@
     })
 
     $('body').on('click','#login_btn',function () {
-        const mobile_no = $('#mobile_no').val();
-        const password = $('#password').val();
+        const mobile_no = $('#mobile').val();
+        const password = $('#password_sign_in').val();
 
         if (mobile_no == '' && password == '') {
             toastr.error('Please enter the details');
