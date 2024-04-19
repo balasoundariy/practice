@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, input {
+    font-family: "Poppins", sans-serif;
+}
+
+.popup_container
+{
+background-color: #fff;
+position: relative;
+}
+.pop_close
+{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: #ffe000;
+        color: #000;
+        border-radius: 25px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+
+
+.rk_popup {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    z-index: 1;
+    height: 100dvh;
+    overflow: hidden auto;
+    background: #fff;
+}
+.main_page_login_section {
+    position: relative;
+    height: 100vh;
+    padding: 50px 50px 0px 44px;
+}
+.titt_sign
+{
+    text-align: center;
+    color: #444;
+    font-family: "Poppins", sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+}
+.input_con
+{
+    display: flex;
+    margin-top: 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #aaa;
+}
+.input_con input
+{
+width:100%;
+height: 40px;
+border: none;
+font-size: 18px;
+font-weight: 600;
+padding-left: 30px;
+}
+.input_con input::placeholder{
+    color: #aaa;
+}
+.user_icon i
+{
+    color:#aaa;
+    font-size: 20px;
+
+}
+.user_icon i.email_icon
+{
+    font-size: 16px;
+}
+
+.reg-button
+{
+    background-color: #ffe000;padding: 16px 56px;color:#000;font-size: 14px;font-weight: 700;text-transform: uppercase;border-radius: 25px;border: none;line-height: 1;border: 2px solid transparent;
+}
+
+.btn_container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.bottom_cont {
+    position: absolute;
+    left: 50%;
+    bottom: 0%;
+    transform: translate(-50%, 0%);
+    background-color: #ffe000;
+    height: 230px;
+    border-radius: 0px;
+    border-top-left-radius: 40%;
+    border-top-right-radius: 40%;
+    width: 100%;
+    text-align: center;
+    padding: 20px 20px;
+}
+
+.bc_signin
+{
+    padding: 14px 40px;font-size: 15px;font-weight: 600;border-radius: 25px;margin-top: 10px;color:#000;border: 2px solid #000;background: transparent;text-transform: uppercase;
+}
+
+.bc_h2
+{
+    color:#000 !important;
+    text-align: center;
+}
+
+.bc_p
+{
+    color:#000;
+    text-align: center;
+    font-size: 14px;
+}
+
+.user_icon
+{
+    position: absolute;
+    left: 44px;
+}
+
+.main_page_login_section.login_section
+{
+    padding: 0px !important;
+}
+
+.login_section .fields
+{
+    padding: 0px 50px 0px 44px;
+}
+
+.pc_box_shadow
+{
+    box-shadow: 0px 1px 8px #5a6468;
+}
+
+.top_cont
+{
+    background-color: #ffe000;
+    height: 230px;
+    border-radius: 0px;
+    border-bottom-left-radius: 40%;
+    border-bottom-right-radius: 40%;
+    width: 100%;
+    text-align: center;
+    padding: 20px 20px;
+}
+
+.mtop_100
+{
+    margin-top: 100px;
+}

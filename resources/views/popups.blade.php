@@ -1,0 +1,83 @@
+
+<div class="popup_container" >
+    <section class="rk_popup login_popup" style="display: none;">
+        <div class="main_page_login_section login_section">
+            <span class="pop_close pc_box_shadow cls_close_popup">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </span>
+            <div class="top_cont">
+                <h2 class="bc_h2"> New here ?</h2>
+                <p class="bc_p">Your email address must be verified before you can comment. Check your inbox for the verification link, </p>
+                <button class="bc_signin">Sign Up</button>
+            </div>
+
+            <p class="titt_sign mtop_100"> Sign in</p>
+
+            <div class="fields">
+                <div class="input_con username">
+                    <span class="user_icon">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
+                    <input type="tel" class="user-input" placeholder="Mobile No">
+                </div>
+                <div class="input_con f-password">
+                    <span class="user_icon">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
+                    <input type="password" class="pass-input" placeholder="Password">
+                </div>
+            </div>
+            <div class="btn_container">
+                <button class="reg-button">Sign In</button>
+            </div>
+        </div>
+    </section>
+    <section class="rk_popup signUp_popup  " style="display: none;">
+        <div class="main_page_login_section">
+            <span class="pop_close cls_close_popup">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </span>
+            <p class="titt_sign"> Sign up</p>
+            <div class="fields">
+                <div class="input_con">
+                    <span class="user_icon">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </span>
+                    <input type="text" class="name-input" placeholder="Name">
+                </div>
+                <div class="input_con email">
+                    <span class="user_icon">
+                        <i class="fa fa-mobile email_icon" aria-hidden="true"></i>
+                    </span>
+                    <input type="tel" class="email-input" placeholder="Mobile No">
+                </div>
+                <div class="input_con username">
+                    <span class="user_icon">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
+                    <input type="text" class="user-input" placeholder="City">
+                </div>
+                <div class="input_con f-password">
+                    <span class="user_icon">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
+                    <input type="text" class="pass-input" placeholder="State">
+                </div>
+                <div class="input_con f-password">
+                    <span class="user_icon">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
+                    <input type="password" class="password-input2" placeholder="Password">
+                </div>
+            </div>
+            <div class="btn_container">
+                <button class="reg-button">Sign Up</button>
+            </div>
+            <div class="bottom_cont">
+                <h2 class="bc_h2">One of us?</h2>
+                <p class="bc_p">Your email address must be verified before you can comment. Check your inbox for the verification link, or visit your account settings to resend the email. </p>
+                <button class="bc_signin"> Sign In</button>
+            </div>
+        </div>
+    </section>
+</div>

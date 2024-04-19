@@ -1,22 +1,20 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
     <head>
-    <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sample_project</title>
-        <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
-        <!-- <link rel="icon" type="image/png" href="assets/images/" sizes="194x194"> -->
-        <link rel="stylesheet" href="assets/css/jquery-ui.css">
-        <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
-        <link rel="stylesheet" href="assets/css/style.css">
-
-        <script src="{{asset('assets/js/script.js')}}"></script>
-        <script src="{{asset('assets/js/libs/jquery.min.js')}}"></script>
-        <script src="{{asset('assets/js/libs/jquery-ui.js')}}"></script>
-        <script src="{{asset('assets/js/libs/jquery-ui.min.js')}}"></script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{asset('/css/custom_styles.css')}}" />
+        <title>Play Today</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
     <body>
+        @include('header')
         @yield('content')
-        @yield('scripts')
+        @include('footer')
+        @include('popups')
+
+        <script src="{{asset('/js/script.js')}}"></script>
     </body>
 </html>
