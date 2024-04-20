@@ -6,6 +6,7 @@
     };
 
     let mnv_value = '';
+
     $('body').on('input','#mobile_no',function(e){
         let mnv_input = $(this);
         let mnv_pattern = /^[6-9]{1}[0-9]{0,9}$/;
@@ -122,4 +123,27 @@
             })
         }
     })
+
+    $('body').on('click','.dev_sign_up_btn',function () {
+            $('.login_popup').hide()
+            $('.signUp_popup').show()
+    })
+    $('body').on('click','.dev_sign_in_btn',function () {
+            $('.signUp_popup').hide()
+            $('.login_popup').show()
+    })
+
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+    @auth()
+    window.onclick = function(e) {
+        if (!e.target.matches('.cart') &&!e.target.matches('.dropbtn')) {
+            const myDropdown = document.getElementById("myDropdown");
+            if (myDropdown.classList.contains('show')) {
+                myDropdown.classList.remove('show');
+            }
+        }
+    }
+    @endauth
 </script>

@@ -14,9 +14,5 @@
         @include('header')
         @yield('content')
         @include('footer')
-        @include('popups')
-        @include('scripts')
-
-        <script src="{{asset('/js/script.js')}}"></script>
     </body>
 </html>

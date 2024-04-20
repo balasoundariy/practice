@@ -7,7 +7,7 @@
             <div class="top_cont">
                 <h2 class="bc_h2"> New here ?</h2>
                 <p class="bc_p">Your email address must be verified before you can comment. Check your inbox for the verification link, </p>
-                <button class="bc_signin">Sign Up</button>
+                <button class="bc_signin dev_sign_up_btn">Sign Up</button>
             </div>
 
             <p class="titt_sign mtop_100"> Sign in</p>
@@ -75,24 +75,20 @@
             <div class="bottom_cont">
                 <h2 class="bc_h2">One of us?</h2>
                 <p class="bc_p">Your email address must be verified before you can comment. Check your inbox for the verification link, or visit your account settings to resend the email. </p>
-                <button class="bc_signin"> Sign In</button>
+                <button class="bc_signin dev_sign_in_btn"> Sign In</button>
             </div>
         </div>
     </section>
-
     <section class="rk_popup success_popup" style="display: none;">
-
-    <div class="main_container">
-    
-<div class="lp_main_banner"> <img src="/img/winner.png" class="cart" alt="cart"> </div>
-
-<h1 class="lp_sw_p"> Lottery</h2>
-<p class="lp_p">Placed <br> successfully !</p>
-
-<button class="lp_choose_btn"> <a href="{{route('home')}}"> Home </a>  </button>
-
-
-</div>
+        <div class="main_container">
+            <div class="lp_main_banner">
+                <img src="/img/winner.png" class="cart" alt="cart">
+            </div>
+            <h1 class="lp_sw_p"> Ticket</h1>
+            <p class="lp_p">Placed <br> successfully !</p>
+            <button class="lp_choose_btn">
+                <a href="{{route('home')}}"> Home </a>
+            </button>
+        </div>
     </section>
-
 </div>

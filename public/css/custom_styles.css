@@ -12,11 +12,11 @@ body::-webkit-scrollbar {
 
   body {
     -ms-overflow-style: none;
-    scrollbar-width: none;  
+    scrollbar-width: none;
   }
 body, input {
     font-family: "Poppins", sans-serif;
-    background: #eae7d6;
+    /*background: #eae7d6;*/
 }
 
 .popup_container
@@ -219,11 +219,11 @@ text-transform: capitalize;
 }
 .mc_p
 {
-    
+
 padding-top: 8px;
-    
+
 font-size: 28px;
-    
+
 color: #736a6a;
 }
 .choose_btn
@@ -251,10 +251,10 @@ margin-top: 30px;
     float: left;
     overflow: hidden;
   }
-  
+
   .dropdown .dropbtn {
     cursor: pointer;
-    font-size: 16px;  
+    font-size: 16px;
     border: none;
     outline: none;
     color: white;
@@ -273,7 +273,7 @@ margin-top: 30px;
     right: -6px;
     top: 61px;
   }
-  
+
   .dropdown-content a {
     float: none;
     color: black;
@@ -283,11 +283,11 @@ margin-top: 30px;
     text-align: left;
     cursor: pointer;
   }
-  
+
   .dropdown-content a:hover {
     background-color: #ddd;
   }
-  
+
   .show {
     display: block;
   }
@@ -525,9 +525,9 @@ font-weight: 700;
 }
 .summ_inr_con
 {
-    
+
 font-weight: 600;
-    
+
 font-size: 45px;
 }
 .summ_inr_con i.fa.fa-inr {
@@ -535,7 +535,7 @@ font-size: 45px;
 }
 .summary_choose_btn
 {
-    
+
         display: flex;
         justify-content: center;
         align-items: center;
