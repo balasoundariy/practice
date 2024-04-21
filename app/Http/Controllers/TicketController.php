@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TicketController extends Controller
 {
@@ -29,10 +30,12 @@ class TicketController extends Controller
             $tickets->save();
         }else{
             $tickets = new Ticket();
+            $tickets->user_id = Auth::user()->id;
             $tickets->ticket_amount = $request->ticket_amount;
             $tickets->ticket_no = json_encode($request->ticket_no);
             $tickets->chances = json_encode($request->chances);
             $tickets->total = 1234;
+            $tickets->payment_status = 1;
             $tickets->save();
             session()->put('ticket_id',$tickets->id);
         }
