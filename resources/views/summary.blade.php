@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="payment_sec_head">
-        <a class="icon_arr" onclick="window.history.back();"><i class="fa fa-arrow-left " aria-hidden="true"></i> </a>
+        <a class="icon_arr" onclick="window.history.back();"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> </a>
         <h1 class="payment_h1">Payment</h1>
     </div>
     <div class="summ_container">

@@ -13,12 +13,17 @@ body::-webkit-scrollbar {
   body {
     -ms-overflow-style: none;
     scrollbar-width: none;
+    /* background-color: #ffe000; */
+    height: 100dvh;
   }
 body, input {
     font-family: "Poppins", sans-serif;
     /*background: #eae7d6;*/
 }
-
+button ,a 
+{
+cursor: pointer;
+}
 .popup_container
 {
 background-color: #fff;
@@ -113,7 +118,7 @@ padding-left: 30px;
     bottom: 0%;
     transform: translate(-50%, 0%);
     background-color: #ffe000;
-    height: 230px;
+    height: 170px;
     border-radius: 0px;
     border-top-left-radius: 40%;
     border-top-right-radius: 40%;
@@ -137,7 +142,7 @@ padding-left: 30px;
 {
     color:#000;
     text-align: center;
-    font-size: 14px;
+    font-size: 11px;
 }
 
 .user_icon
@@ -164,7 +169,7 @@ padding-left: 30px;
 .top_cont
 {
     background-color: #ffe000;
-    height: 230px;
+    height: 180px;
     border-radius: 0px;
     border-bottom-left-radius: 40%;
     border-bottom-right-radius: 40%;
@@ -175,14 +180,20 @@ padding-left: 30px;
 
 .mtop_100
 {
-    margin-top: 100px;
+    margin-top: 60px;
+}
+textarea:focus, input:focus{
+    outline: none;
 }
 .header
-{padding:12px 12px;box-shadow: 0px 3px 9px #cbcaca;background: white;}
+{
+    padding:12px 12px 5px 12px;
+    box-shadow: 0px 3px 9px #cbcaca;
+    background: white;}
 .header_con
 {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     position: relative;
 }
@@ -193,7 +204,7 @@ padding-left: 30px;
 }
 .main_logo img
 {
-    max-width: 134px;
+    max-width: 112px;
 }
 .main_container{
     display: flex;
@@ -201,12 +212,16 @@ padding-left: 30px;
     justify-content: center;
     text-align: center;
     padding: 50px 5px 5px 0px;
-    height: 100%;
-    background: #eae7d6;
+    /* background: #eae7d6; */
 }
 .mc_main_banner
 {
     font-family: "Poppins", sans-serif;
+
+}
+.mc_main_banner img
+{
+    max-width: 170px;
 }
 .mc_sw_p
 {
@@ -271,7 +286,7 @@ margin-top: 30px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     right: -6px;
-    top: 61px;
+    top: 44px;
   }
 
   .dropdown-content a {
@@ -293,9 +308,10 @@ margin-top: 30px;
   }
   .bf_login_con
   {
-position: absolute;
-right: 5px;
-top:5px;
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
 
   }
   .btncon_reg
@@ -311,51 +327,59 @@ top:5px;
   .btncon_log
   {
         padding: 7px 15px;
-        background-color: #ffffff;
+        background-color: #000;
         color: #d2be2d;
         font-size: 15px;
         border: none;
-        border: 2px solid #d2be2d;
         border-radius: 5px;
   }
 
 
   .lp_sw_p
 {
-font-size: 60px;
-color: #230081;
+font-size: 24px;
+color: #000;
 text-transform: capitalize;
 }
 .lp_p
 {
-padding-top: 8px;
-font-size: 28px;
-color: #230081;
-font-weight: 700;
+    padding-top: 8px;
+    font-size: 19px;
+    color: #0ab10a;
+    font-weight: 700;
+    line-height: 1;
 }
 .lp_choose_btn
 {
-        padding: 8px 35px;
-        background: #ffe000;
-        cursor: pointer;
-        font-size: 34px;
-        font-weight: 700;
-        text-transform: capitalize;
-        max-width: 180px;
-        text-align: center;
-        margin: 0 auto;
-        border: none;
-        border-radius: 5px;
-        margin-top: 30px;
+    padding: 16px 35px;
+    background: #ffe000;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: capitalize;
+    width: 180px;
+    text-align: center;
+    margin: 0 auto;
+    border: none;
+    border-radius: 24px;
+    margin-top: 30px;
 }
+
 .lp_choose_btn a{
-    color: #230081 !important;
+    color: #000 !important;
     text-decoration: none;
 }
 
 .lp_main_banner
 {
     font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lp_main_banner img
+{
+width: 180px;
 }
 
 .tic_container
@@ -385,7 +409,7 @@ padding: 10px 15px;
     font-weight: 700;
 }
 .tic_container_p i{
-    font-size: 29px;
+    font-size: 30px;
     font-weight: 500;
 }
 .tc_main_con
@@ -396,7 +420,9 @@ padding: 10px 15px;
 }
 .tc_h1
 {
-    color: #b6a000 !important;
+    color: #000 !important;
+    font-size: 17px;
+
 }
 .ticket_select.active
 {
@@ -408,26 +434,31 @@ padding: 10px 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    padding: 13px 50px;
+    width: 80%;
+    padding: 4px 3px;
     gap: 24px;
     text-align: center;
+    margin: 0 auto;
 }
 .col_md_8
 {
-    width: 70%;
+    width: 60%;
 }
-.col_md_4
+.col_md_2
 {
     width: 30%;
+}
+.col_md_1
+{
+    width: 10%;
 }
 
 .tic_details_con input{
 width: 100%;
 padding: 10px 5px;
-background-color: #b6a000;
 border-radius: 5px;
-font-size: 20px;
+font-size: 12px;
+border: 2px solid #000;
 }
 .tic_details
 {
@@ -437,9 +468,15 @@ font-size: 20px;
 }
 .ticdet_p
 {
-    color:#000;
-    font-size: 19px;
+    font-size: 14px;
     font-weight: 700;
+}
+.tic_dt_min_height
+{
+    min-height: 330px;
+    max-height: 330px;
+    overflow-y: scroll;
+
 }
 .payment_sec_head
 {
@@ -451,14 +488,13 @@ font-size: 20px;
     text-align: center;
 }
 .payment_h1
-{font-size: 28px;}
+{font-size: 20px;}
 .icon_arr
 {position: absolute;
-    left: 8px;
-    top: 18px;
-    font-size: 30px;
-    color:#000;
-    cursor: pointer;
+    left: 15px;
+    top: 8px;
+    font-size: 26px;
+    color: #000;
     text-decoration: none;
 }
 .clc_timer
@@ -475,9 +511,9 @@ font-size: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 72%;
+    width: 90%;
     margin: 0px auto;
-    background-color: #d2be2d;
+    background-color: #ffe000;
     border-radius: 20px;
     padding: 34px 4px;
     flex-direction: column;
@@ -485,20 +521,20 @@ font-size: 20px;
 .sum_label
 {
     color: #361a1a;
-    font-size: 19px;
+    font-size: 15px;
     font-weight: 500;
 }
 .nc_p
 {
-    font-size: 40px;
+    font-size: 25px;
     font-weight: 500;
-    color: #fff;
+    color: #000;
 }
 .pw_p
 {
     font-size: 18px;
     font-weight: 600;
-    color: #fff;
+    color: #000;
 }
 
 .totalsumm_con
@@ -506,56 +542,392 @@ font-size: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 72%;
+    width: 90%;
     margin: 0px auto;
-    background-color: #d2be2d;
+    background-color: #ffe000;
     border-radius: 20px;
     padding: 11px 4px;
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 15px;
+
 }
 .total_summ_p
 {
+    font-size: 15px;
+    text-transform: capitalize;
+    font-weight: 400;
 
-font-size: 22px;
-
-text-transform: capitalize;
-
-font-weight: 700;
 }
 .summ_inr_con
 {
 
 font-weight: 600;
 
-font-size: 45px;
+font-size: 25px;
 }
 .summ_inr_con i.fa.fa-inr {
-    font-size: 40px;
+    font-size: 22px;
+    padding-right: 2px;
 }
 .summary_choose_btn
 {
-
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 72%;
+        max-width: 500px;
         margin: 0px auto;
-        background-color: #d2be2d;
+        background-color: #000;
         border-radius: 20px;
-        padding: 11px 4px;
+        padding: 18px 4px;
         flex-direction: column;
-        margin-top: 10px;
-        border: none;
-
         margin-top: 30px;
+        border: none;
+        margin-top: 50px;
+        width: 90%;
+        color: #ffe000 !important;
+        border: 2px solid #000;
+        font-weight: 700;
+        font-size: 25px;
+
 }
 .summary_choose_btn a{
 
     cursor: pointer;
-    font-size: 34px;
+    font-size: 18px;
     font-weight: 700;
     text-transform: capitalize;
-    color: #000 !important;
     text-decoration: none;
 }
+.header_con.flex_start
+{
+justify-content: flex-start  !important;
+}
+
+.hm_bottom_cont {
+    position: absolute;
+    left: 50%;
+    bottom: 0%;
+    transform: translate(-50%, 0%);
+    height: 80px;
+    width: 100%;
+    text-align: center;
+    /* background-image: url(/img/wave.svg);
+    background-repeat: no-repeat; */
+}
+.betting_container_rk {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px;
+    background: #ffe000;
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+.betting_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.betting_section.head_sec
+{
+text-align: center;
+font-weight: 700;
+}
+.bs_col_md_1
+{
+    width: 33.333%;
+    border: 1px solid black;
+}
+.bs_col_md_1 p{
+        font-size: 16px;
+        text-transform: capitalize;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+}
+.del_icon
+{
+    color: red;
+}
+.td_btn_con
+{
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 10px 5px 5px 15px;
+
+}
+.td_btn_con .td_btn
+{
+    padding: 8px 15px;
+    background-color: #ffe000;
+    color: #000;
+    font-size: 13px;
+    text-transform: capitalize;
+    width: 100px;
+    border: 2px solid #000;
+    border-radius: 4px;
+    FONT-WEIGHT: 600;
+}
+
+.next_btn .td_btn
+{
+    width: 220px;
+    border-radius: 24px;
+    padding: 17px 15px;
+    background-color: #000;
+    color: #ffe000;
+}
+.rk_popup.success_popup .main_container
+{
+height:100%;
+padding: 0px 5px 5px 0px;
+}
+.money_icon,.ticket_select1
+{
+    padding: 0px  !important;
+}
+.money_icon
+{
+    position: absolute;
+    left: 10px;
+    top:5px;
+}
+.money_icon img
+{
+    max-width: 45px;
+    padding: 0px  !important;
+}
+.top.--flex-column
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+
+ a 
+{
+text-decoration: none  !important;
+}
+.bottom
+{
+color:#000;
+}
+@media only screen and (max-width: 359px) {
+    .titt_sign
+    {
+        font-size: 25px;
+    }
+    .input_con input
+    {
+        font-size: 15px;
+    }
+ 
+    .user_icon i
+    {
+        font-size: 16px;
+    }
+    .input_con
+    {
+        margin-top: 7px;
+    }
+    .btn_container
+    {
+        margin-top: 30px;
+    }
+    .bottom_cont
+    {
+        padding: 10px 20px;
+    }
+    .bc_signin
+    {
+        padding: 9px 40px;
+        font-size: 13px;
+    }
+    .main_logo img
+    {
+        max-width: 100px;
+    }
+  }
+
+
+
+  
+@media only screen and (max-width: 427px) {
+    .titt_sign
+    {
+        font-size: 25px;
+    }
+    .input_con input
+    {
+        font-size: 15px;
+    }
+
+    .user_icon i
+    {
+        font-size: 16px;
+    }
+    .input_con
+    {
+        margin-top: 12px;
+    }
+    .btn_container
+    {
+        margin-top: 30px;
+    }
+    .bottom_cont
+    {
+        padding: 10px 20px;
+        height: 156px;
+    }
+    .bc_signin
+    {
+        padding: 9px 40px;
+        font-size: 13px;
+    }
+  }
+
+
+  
+@media only screen and (max-width: 699px) {
+
+    .titt_sign
+    {
+        font-size: 25px;
+    }
+    .input_con input
+    {
+        font-size: 15px;
+    }
+
+    .user_icon i
+    {
+        font-size: 16px;
+    }
+    .input_con
+    {
+        margin-top: 12px;
+    }
+    .btn_container
+    {
+        margin-top: 30px;
+    }
+    .bottom_cont
+    {
+        padding: 10px 20px;
+        height: 156px;
+    }
+    .bc_signin
+    {
+        padding: 9px 40px;
+        font-size: 13px;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .input_con
+    {
+        margin-top: 11px;
+    }
+    .btn_container
+    {
+        margin-top: 15px;
+    }
+
+  }
+
+
+  body widget {
+    filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+  }
+  body widget[type=ticket] {
+    width: 90%;
+margin: 0 auto;
+  }
+  body widget[type=ticket] .top > div,
+  body widget[type=ticket] .bottom > div {
+    padding: 0 18px;
+  }
+  body widget[type=ticket] .top > div:first-child,
+  body widget[type=ticket] .bottom > div:first-child {
+    padding-top: 18px;
+  }
+  body widget[type=ticket] .top > div:last-child,
+  body widget[type=ticket] .bottom > div:last-child {
+    padding-bottom: 18px;
+  }
+  body widget[type=ticket] .top img,
+  body widget[type=ticket] .bottom img {
+    padding: 18px 0;
+  }
+  body widget[type=ticket] .top,
+  body widget[type=ticket] .bottom,
+  body widget[type=ticket] .rip {
+    background-color: #fff;
+  }
+  body widget[type=ticket] .top {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+  body widget[type=ticket] .top .deetz {
+    padding-bottom: 10px !important;
+  }
+  body widget[type=ticket] .bottom {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 18px;
+    height: 30px;
+    padding-top: 0px;
+  }
+  body widget[type=ticket] .bottom .barcode {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF4AAAABCAYAAABXChlMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuOWwzfk4AAACPSURBVChTXVAJDsMgDOsrVpELiqb+/4c0DgStQ7JMYogNh2gdvg5VfXFCRIZaC6BOtnoNFpvaumNmwb/71Frrm8XvgYkker1/g9WzMOsohaOGNziRs5inDsAn8yEPengTapJ5bmdZ2Yv7VvfPN6AH2NJx7nOWPTf1/78hoqgxhzw3ZqYG1Dr/9ur3y8vMxgNZhcAUnR4xKgAAAABJRU5ErkJggg==);
+    background-repeat: repeat-y;
+    min-width: 58px;
+  }
+  body widget[type=ticket] .bottom .buy {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #5d9cec;
+    padding: 0 18px;
+    line-height: 30px;
+    border-radius: 15px;
+    color: #fff;
+    text-decoration: none;
+  }
+  body widget[type=ticket] .rip {
+    height: 20px;
+    margin: 0 10px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAACCAYAAAB7Xa1eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuOWwzfk4AAAAaSURBVBhXY5g7f97/2XPn/AcCBmSMQ+I/AwB2eyNBlrqzUQAAAABJRU5ErkJggg==);
+    background-size: 4px 2px;
+    background-repeat: repeat-x;
+    background-position: center;
+    position: relative;
+    box-shadow: 0 1px 0 0 #fff, 0 -1px 0 0 #fff;
+  }
+  body widget[type=ticket] .rip:before, body widget[type=ticket] .rip:after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border: 5px solid transparent;
+    border-top-color: #fff;
+    border-right-color: #fff;
+    border-radius: 100%;
+    pointer-events: none;
+  }
+  body widget[type=ticket] .rip:before {
+    left: -10px;
+  }
+  body widget[type=ticket] .rip:after {
+    transform: translate(-50%, -50%) rotate(225deg);
+    right: -40px;
+  }
+  body widget .-bold {
+    font-weight: bold;
+  }

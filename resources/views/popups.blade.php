@@ -82,10 +82,10 @@
     <section class="rk_popup success_popup" style="display: none;">
         <div class="main_container">
             <div class="lp_main_banner">
-                <img src="/img/winner.png" class="cart" alt="cart">
+                <img src="/img/tick.png" class="cart" alt="cart">
             </div>
             <h1 class="lp_sw_p"> Ticket</h1>
-            <p class="lp_p">Placed <br> successfully !</p>
+            <p class="lp_p">Placed  successfully !</p>
             <button class="lp_choose_btn">
                 <a href="{{route('home')}}"> Home </a>
             </button>
