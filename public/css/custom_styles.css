@@ -187,7 +187,7 @@ textarea:focus, input:focus{
 }
 .header
 {
-    padding:12px 12px 5px 12px;
+    padding:12px 12px 12px 12px;
     box-shadow: 0px 3px 9px #cbcaca;
     background: white;}
 .header_con
@@ -201,6 +201,9 @@ textarea:focus, input:focus{
 .acc_sec{
     position: absolute;
     right: 5px;
+}
+.main_logo a{
+    display: flex;
 }
 .main_logo img
 {
@@ -716,6 +719,80 @@ text-decoration: none  !important;
 {
 color:#000;
 }
+
+.container {
+    background-color: #D7CCC8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+  }
+  .card {
+    background-color: #fff;
+    max-width: 800px;
+    box-shadow: 2px 2px 5px #9E9E9E, -1px -1px 5px #9E9E9E;
+    border-radius: 3px;
+    display: grid;
+    grid-template-column: repeat(5, 1fr);
+  }
+  .card .img-container {
+    height: 100px;
+    width: 30%;
+    position: relative;
+    grid-column: 2;
+    
+    /* background-image: url('https://www.dropbox.com/s/7d5qt5wb2xpqeww/city-street.jpg?raw=1'); */
+    background-size: cover;
+    background-position: center center;
+  }
+  .cart_status
+  {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #00000033;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+
+  }
+  .cart_status   img
+  {
+width:25px;
+  }
+  .card-content {
+    grid-column: 3 / 5;
+    padding:4px 7px;
+    border-left: 1px solid #ccc;
+  }
+  .excerpt
+  {
+font-size: 12px;
+  }
+  .card-content .author {
+    border-top: 1px solid #cdcdcd;
+    font-weight: 700;
+    margin-top: 25px;
+    padding: 25px 0 10px 0;
+    color: #555;
+  }
+  
+  @media only screen and (max-width:600px) {
+    .card {
+      display: flex;
+    }
+    .card .img-container {
+      /* height: 100px; */
+      width: 30%;
+    }
+    .card-content {
+      border: 0;
+      border-top: 1px solid #ccc;
+      width: 70%;
+    }
+  }
 @media only screen and (max-width: 359px) {
     .titt_sign
     {

@@ -30,6 +30,18 @@
             </button>
         @else
 
+
+ 
+        <div class="card">
+    <div class="img-container"> <div class="cart_status"> <img src="/img/money.png"  alt="cart"> </div> </div>
+    <div class="card-content">
+      
+      
+      <p class="excerpt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia odio dolorem amet, sunt magnam asperio</p>
+      
+    </div>
+  </div>
+
         @endauth
 
         <div class="hm_bottom_cont">
