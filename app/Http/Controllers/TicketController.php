@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class TicketController extends Controller
 {
@@ -26,7 +27,7 @@ class TicketController extends Controller
             $tickets->ticket_amount = $request->ticket_amount;
             $tickets->ticket_no = json_encode($request->ticket_no);
             $tickets->chances = json_encode($request->chances);
-            $tickets->total = 123456;
+            $tickets->total = $this->calculate_amount($request->ticket_amount ,$request->chances);
             $tickets->save();
         }else{
             $tickets = new Ticket();
@@ -34,12 +35,21 @@ class TicketController extends Controller
             $tickets->ticket_amount = $request->ticket_amount;
             $tickets->ticket_no = json_encode($request->ticket_no);
             $tickets->chances = json_encode($request->chances);
-            $tickets->total = 1234;
+            $tickets->total = $this->calculate_amount($request->ticket_amount ,$request->chances);
             $tickets->payment_status = 1;
             $tickets->save();
             session()->put('ticket_id',$tickets->id);
         }
         return view('summary',compact('tickets'));
+    }
+
+    public function calculate_amount($t_amount,$chances)
+    {
+        $amount = 0;
+        foreach ($chances as $chance) {
+            $amount = $amount + ($t_amount * $chance);
+        }
+        return $amount;
     }
 
     public function makePayment(Request $request)

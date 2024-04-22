@@ -1,17 +1,37 @@
 @extends('layout.layout')
 
 @section('content')
+
     <div class="payment_sec_head">
         <a class="icon_arr" onclick="window.history.back();"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> </a>
         <h1 class="payment_h1">Payment</h1>
     </div>
-    <div class="summ_container">
-        <label class="sum_label"> Choosed Numbers </label>
-        <p class="nc_p"> {{implode(',',json_decode($tickets->ticket_no,true))}}</p>
-        <label class="sum_label"> Number of Chance</label>
-        <p class="nc_p"> {{implode(',',json_decode($tickets->chances,true))}}</p>
-        <label class="sum_label"> Possible winnings</label>
-        <p class="pw_p"> <i class="fa fa-inr" aria-hidden="true"></i>10,000 to <i class="fa fa-inr" aria-hidden="true"></i>25,000</p>
+    <div class="summaary_cart_con" style="">
+        <div class="shoping_cart">
+            <div class="shoping_c_left">Summary</div>
+            <div class="sc_del"> <i class="fa fa-trash-o " aria-hidden="true"></i></div>
+        </div>
+        <div class="shoping_cart_head black_bg">
+            <div class="sc_name">Number</div>
+            <div class="sc_series"> Chance</div>
+            <div class="sc_amount"> Amount</div>
+        </div>
+        @foreach(json_decode($tickets->ticket_no) as $key => $number)
+            <div class="shoping_cart_head">
+                <div class="sc_name">{{$number}}</div>
+                <div class="sc_series"> {{json_decode($tickets->chances)[$key]}}</div>
+                <div class="sc_amount"> {{$tickets->ticket_amount}}</div>
+                <div class="sc_del"> <i class="fa fa-minus-circle delete_icon" aria-hidden="true"></i></div>
+            </div>
+        @endforeach
+
+{{--        <div class="shoping_cart_head nodata_found">--}}
+{{--            <div class="No_found">No Data Found</div>--}}
+{{--        </div>--}}
+
+
+
+
     </div>
     <div class="totalsumm_con">
         <p class="total_summ_p"> Total amount</p>

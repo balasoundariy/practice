@@ -20,7 +20,7 @@ body, input {
     font-family: "Poppins", sans-serif;
     /*background: #eae7d6;*/
 }
-button ,a 
+button ,a
 {
 cursor: pointer;
 }
@@ -419,7 +419,7 @@ padding: 10px 15px;
 {
     background: transparent;
     /* margin-top: -2px; */
-    padding-top: 10px;
+    padding-top: 0px;
 }
 .tc_h1
 {
@@ -711,7 +711,7 @@ padding: 0px 5px 5px 0px;
 
 }
 
- a 
+ a
 {
 text-decoration: none  !important;
 }
@@ -731,26 +731,25 @@ color:#000;
     background-color: #fff;
     max-width: 800px;
     box-shadow: 2px 2px 5px #9E9E9E, -1px -1px 5px #9E9E9E;
-    border-radius: 3px;
+    border-radius: 6px;
     display: grid;
     grid-template-column: repeat(5, 1fr);
+      width:90%;
+      margin: 10px auto;
+      padding: 4px 0px;
   }
   .card .img-container {
-    height: 100px;
-    width: 30%;
+    padding: 10px;
+    width: 20%;
     position: relative;
-    grid-column: 2;
-    
-    /* background-image: url('https://www.dropbox.com/s/7d5qt5wb2xpqeww/city-street.jpg?raw=1'); */
-    background-size: cover;
-    background-position: center center;
+    /*grid-column: 2;*/
   }
   .cart_status
   {
     position: absolute;
-    left: 50%;
+    left: 10px;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateY(-50%);
     background: #00000033;
     padding: 10px;
     display: flex;
@@ -760,37 +759,41 @@ color:#000;
   }
   .cart_status   img
   {
-width:25px;
+    width:25px;
   }
   .card-content {
-    grid-column: 3 / 5;
+    /*grid-column: 3 / 5;*/
     padding:4px 7px;
     border-left: 1px solid #ccc;
+      width:70%;
+      text-align:left;
   }
   .excerpt
   {
-font-size: 12px;
+font-size: 10px;
+      line-height: 1.5;
   }
   .card-content .author {
-    border-top: 1px solid #cdcdcd;
+
     font-weight: 700;
     margin-top: 25px;
     padding: 25px 0 10px 0;
     color: #555;
+      text-align: left;
   }
-  
+
   @media only screen and (max-width:600px) {
     .card {
       display: flex;
     }
     .card .img-container {
       /* height: 100px; */
-      width: 30%;
+      /*width: 20%;*/
     }
     .card-content {
       border: 0;
-      border-top: 1px solid #ccc;
-      width: 70%;
+      /*border-top: 1px solid #ccc;*/
+      /*width: 80%;*/
     }
   }
 @media only screen and (max-width: 359px) {
@@ -802,7 +805,7 @@ font-size: 12px;
     {
         font-size: 15px;
     }
- 
+
     .user_icon i
     {
         font-size: 16px;
@@ -832,7 +835,7 @@ font-size: 12px;
 
 
 
-  
+
 @media only screen and (max-width: 427px) {
     .titt_sign
     {
@@ -868,7 +871,7 @@ font-size: 12px;
   }
 
 
-  
+
 @media only screen and (max-width: 699px) {
 
     .titt_sign
@@ -1008,3 +1011,78 @@ margin: 0 auto;
   body widget .-bold {
     font-weight: bold;
   }
+.summaary_cart_con
+{
+    background-color:grey;
+    width:90%;
+    margin: 0 auto;
+    border:2px  solid #000;
+    border-radius:4px;
+}
+.shoping_cart
+{
+    display:flex;
+    justify-content:space-between;
+    padding:5px 10px;
+    background-color:#ffe200;
+}
+.shoping_cart_head
+{
+    display:flex;
+    background-color:#fff;
+}
+.nodata_found .No_found
+{
+width:100%;
+    padding: 25px 0px;
+}
+.delete_icon
+{
+    font-size: 15px;
+}
+.shoping_c_left
+{
+    width:85%;
+}
+.shoping_cart .sc_del
+{
+    padding-left:5px;
+}
+.sc_name
+{
+    width:45%;
+}
+/*.sc_type*/
+/*{*/
+/*    width:15%;*/
+/*}*/
+.sc_series
+{
+    width:20%;
+}
+.sc_amount
+{
+    width:20%;
+}
+.sc_del
+{
+    width:15%;
+    text-align:center;
+}
+.shoping_cart_head div
+{
+    text-align:center;
+    border:2px solid #000;
+    border-left: none;
+    border-bottom:none;
+    padding:8px 5px;
+    font-size: 10px;
+}
+.shoping_cart_head div:last-child {
+    border-right: none;
+}
+.black_bg
+{
+    color: #ffe200;
+    background:#000;
+}

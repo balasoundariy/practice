@@ -82,7 +82,7 @@
     <section class="rk_popup success_popup" style="display: none;">
         <div class="main_container">
             <div class="lp_main_banner">
-                <img src="/img/tick.png" class="cart" alt="cart">
+                <img src="{{asset('/img/tick.png')}}" class="cart" alt="cart">
             </div>
             <h1 class="lp_sw_p"> Ticket</h1>
             <p class="lp_p">Placed  successfully !</p>
