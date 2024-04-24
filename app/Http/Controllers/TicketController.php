@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +12,8 @@ class TicketController extends Controller
 {
     public function showTickets()
     {
-        return view('tickets');
+        $tickets = Ticket::all();
+        return view('tickets', compact('tickets'));
     }
 
     public function ticketDetails($price)
@@ -21,26 +23,26 @@ class TicketController extends Controller
 
     public function summary(Request $request)
     {
-        $ticket_id = session()->has('ticket_id')? session()->get('ticket_id'): false;
-        if($ticket_id){
-            $tickets = Ticket::find($ticket_id);
-            $tickets->ticket_amount = $request->ticket_amount;
-            $tickets->ticket_no = json_encode($request->ticket_no);
-            $tickets->chances = json_encode($request->chances);
-            $tickets->total = $this->calculate_amount($request->ticket_amount ,$request->chances);
-            $tickets->save();
+        $order_id = session()->has('order_id')? session()->get('order_id'): false;
+        if($order_id){
+            $orders = Order::find($order_id);
+            $orders->ticket_amount = $request->ticket_amount;
+            $orders->ticket_no = json_encode($request->ticket_no);
+            $orders->chances = json_encode($request->chances);
+            $orders->total = $this->calculate_amount($request->ticket_amount ,$request->chances);
+            $orders->save();
         }else{
-            $tickets = new Ticket();
-            $tickets->user_id = Auth::user()->id;
-            $tickets->ticket_amount = $request->ticket_amount;
-            $tickets->ticket_no = json_encode($request->ticket_no);
-            $tickets->chances = json_encode($request->chances);
-            $tickets->total = $this->calculate_amount($request->ticket_amount ,$request->chances);
-            $tickets->payment_status = 1;
-            $tickets->save();
-            session()->put('ticket_id',$tickets->id);
+            $orders = new Order();
+            $orders->user_id = Auth::user()->id;
+            $orders->ticket_amount = $request->ticket_amount;
+            $orders->ticket_no = json_encode($request->ticket_no);
+            $orders->chances = json_encode($request->chances);
+            $orders->total = $this->calculate_amount($request->ticket_amount ,$request->chances);
+            $orders->payment_status = 1;
+            $orders->save();
+            session()->put('order_id',$orders->id);
         }
-        return view('summary',compact('tickets'));
+        return view('summary',['tickets' => $orders]);
     }
 
     public function calculate_amount($t_amount,$chances)
@@ -55,7 +57,7 @@ class TicketController extends Controller
     public function makePayment(Request $request)
     {
         //update payment status whether they have paid or not
-        session()->forget('ticket_id');
+        session()->forget('order_id');
         return Response()->json([
             'status' => 200,
         ]);

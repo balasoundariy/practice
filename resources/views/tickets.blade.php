@@ -13,13 +13,13 @@
             <h1 class="payment_h1">Ticket Amount</h1>
         </div>
         <div class="tic_container">
-            @foreach(config('app.tickets') as $ticket)
+            @foreach($tickets as $ticket)
                 <widget type="ticket" class="--flex-column">
-                    <a href="{{route('ticket_details',$ticket)}}">
+                    <a href="{{route('ticket_details',$ticket->ticket_price)}}">
                         <div class="top --flex-column">
                             <div class="money_icon">  <img src="{{asset('/img/money.png')}}" class="cart" alt="cart"> </div>
                             <div class="ticket_select1">
-                                <p class="tic_container_p" ><i class="fa fa-inr" aria-hidden="true"></i>{{$ticket}} </p>
+                                <p class="tic_container_p" ><i class="fa fa-inr" aria-hidden="true"></i>{{$ticket->ticket_price}} </p>
                             </div>
                         </div>
                         <div class="rip"></div>

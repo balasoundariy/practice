@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('mobile_no')->unique();
             $table->string('city');
             $table->string('state');
+            $table->string('role')->default('user');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

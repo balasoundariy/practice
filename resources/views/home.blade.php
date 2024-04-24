@@ -3,34 +3,50 @@
 @section('content')
     <div class="main_container">
         @auth()
-{{--            <div class="card">--}}
-{{--                <div class="img-container">--}}
-{{--                    <div class="cart_status"> <img src="{{asset('/img/money.png')}}"  alt="cart"> </div>--}}
-{{--                </div>--}}
-{{--                <div class="card-content">--}}
-{{--                    <h6> ticket</h6>--}}
-{{--                    <p class="excerpt">This sectionof result will be announced after 9 minutes 45 sec</p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        {{dd($tickets)}}--}}
+            <div class="card">
+                <div class="img-container">
+                    <div class="cart_status"> <img src="{{asset('/img/money.png')}}"  alt="cart"> </div>
+                </div>
+                <div class="card-content">
+                    <h6> Please wait until 02:50 pm</h6>
+                    <p class="excerpt">The ticket result will be announced after 02 hours 50 minutes</p>
+                </div>
+            </div>
             @if(isset($tickets) && !empty($tickets))
-                <div class="betting_container_rk">
-                    <div class="betting_section head_sec">
-                        <div class="bs_col_md_1"><p> Ticket </p></div>
-                        <div class="bs_col_md_1"><p> Number</p></div>
-                        <div class="bs_col_md_1"><p> Chance</p></div>
+                <div class="summaary_cart_con">
+                    <div class="shoping_cart_head black_bg">
+                        <div class="sc_name">Number</div>
+                        <div class="sc_series"> Chance</div>
+                        <div class="sc_amount"> Amount</div>
                     </div>
                     @foreach($tickets as $ticket)
                         @foreach(json_decode($ticket['ticket_no']) as $key => $number)
-                            <div class="betting_section">
-                                <div class="bs_col_md_1">{{$number}}</div>
-                                <div class="bs_col_md_1"> {{json_decode($ticket['chances'])[$key]}}</div>
-                                <div class="bs_col_md_1"> {{$ticket['ticket_amount']}}</div>
+                            <div class="shoping_cart_head">
+                                <div class="sc_name">{{$number}}</div>
+                                <div class="sc_series"> {{json_decode($ticket['chances'])[$key]}}</div>
+                                <div class="sc_amount"> {{$ticket['ticket_amount']}}</div>
+                                <div class="sc_del"> <i class="fa fa-minus-circle delete_icon" aria-hidden="true"></i></div>
                             </div>
                         @endforeach
                     @endforeach
-
                 </div>
+{{--                <div class="betting_container_rk">--}}
+{{--                    <div class="betting_section head_sec">--}}
+{{--                        <div class="bs_col_md_1"><p> Ticket </p></div>--}}
+{{--                        <div class="bs_col_md_1"><p> Number</p></div>--}}
+{{--                        <div class="bs_col_md_1"><p> Chance</p></div>--}}
+{{--                    </div>--}}
+{{--                    @foreach($tickets as $ticket)--}}
+{{--                        @foreach(json_decode($ticket['ticket_no']) as $key => $number)--}}
+{{--                            <div class="betting_section">--}}
+{{--                                <div class="bs_col_md_1">{{$number}}</div>--}}
+{{--                                <div class="bs_col_md_1"> {{json_decode($ticket['chances'])[$key]}}</div>--}}
+{{--                                <div class="bs_col_md_1"> {{$ticket['ticket_amount']}}</div>--}}
+{{--                            </div>--}}
+{{--                        @endforeach--}}
+{{--                    @endforeach--}}
+
+{{--                </div>--}}
             @else
                 <div class="mc_main_banner">
                     <img src="{{asset('/img/winner.png')}}" class="cart" alt="cart">
