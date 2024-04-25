@@ -1086,3 +1086,91 @@ width:100%;
     color: #ffe200;
     background:#000;
 }
+.hamburger i
+{
+    font-size: 24px;
+    color:#000;
+}
+.hamburger
+{
+    padding-right: 15px;
+}
+
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: -100%;
+background: #fff;
+    overflow-x: hidden;
+    transition: 0.2s;
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    background-blend-mode: overlay;
+    max-width: 420px;
+    transition: 1s;
+}
+
+.overlay.open {
+    left: 0;
+}
+
+.overlay .header {
+
+        background: yellow;
+        backdrop-filter: blur(35px);
+        -webkit-backdrop-filter: blur(35px);
+        padding: 13px 16px;
+        border-bottom: 1px solid transparent;
+        width: 100%;
+        display: flex;
+        flex-direction: rolumn;
+        gap: 8px;
+        position: sticky;
+        top: 0px;
+        z-index: 1;
+        justify-content: space-between;
+    }
+
+.sidebar_maincon {
+    background-color: transparent;
+    margin: 16px 4px 22px 4px;
+}
+.sidebar_footer {
+    background-color: transparent;
+    margin: 0px 2px 24px 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.card_list_ul
+{
+    list-style-type: none;
+}
+
+.sb_card_inner
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:5px;
+    font-size: 13px;
+    color: #000;
+}
+.card_list_li
+{
+    margin-top: 5px;
+}
+
+.overlay .card-content
+{
+   width:100%;
+}
+.sc_del.editicon a
+{
+    color:#000;
+}

@@ -3,15 +3,17 @@
 @section('content')
     <div class="main_container">
         @auth()
-            <div class="card">
-                <div class="img-container">
-                    <div class="cart_status"> <img src="{{asset('/img/money.png')}}"  alt="cart"> </div>
-                </div>
-                <div class="card-content">
-                    <h6> Please wait until 02:50 pm</h6>
-                    <p class="excerpt">The ticket result will be announced after 02 hours 50 minutes</p>
-                </div>
-            </div>
+{{--            <div class="card">--}}
+{{--                <div class="img-container">--}}
+{{--                    <div class="cart_status"> <img src="{{asset('/img/money.png')}}"  alt="cart"> </div>--}}
+{{--                </div>--}}
+{{--                <div class="card-content">--}}
+{{--                    <h6> Please wait until 02:50 pm</h6>--}}
+{{--                    <p class="excerpt">The ticket result will be announced after 02 hours 50 minutes</p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+            <h1>History</h1>
+            <br>
             @if(isset($tickets) && !empty($tickets))
                 <div class="summaary_cart_con">
                     <div class="shoping_cart_head black_bg">

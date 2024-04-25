@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -45,10 +46,15 @@ class AdminController extends Controller
         return redirect()->route('show');
     }
 
-    public function delete(Request $request)
+    public function delete($ticket_id)
     {
-        $id = $request->id;
-        Ticket::where('id',$id)->where('user_id',Auth::user()->id)->delete();
+        Ticket::where('id',$ticket_id)->delete();
         return redirect()->route('show');
+    }
+
+    public function getOrdersHistory()
+    {
+        $tickets = Order::all()->toArray();
+        return view('admin.orders_history', compact('tickets'));
     }
 }

@@ -24,10 +24,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/payment', '\App\Http\Controllers\TicketController@makePayment')->name('payment');
 });
 Route::group(['middleware' => 'admin'], function () {
+    Route::get('/orders-history', '\App\Http\Controllers\AdminController@getOrdersHistory')->name('get_orders');
     Route::get('/ticket-list', '\App\Http\Controllers\AdminController@showList')->name('show');
     Route::get('/ticket-add', '\App\Http\Controllers\AdminController@add')->name('add');
     Route::get('/ticket-edit/{ticket_id}', '\App\Http\Controllers\AdminController@edit')->name('edit');
     Route::post('/ticket-store', '\App\Http\Controllers\AdminController@store')->name('store');
     Route::post('/ticket-update', '\App\Http\Controllers\AdminController@update')->name('update');
-    Route::post('/ticket-delete', '\App\Http\Controllers\AdminController@delete')->name('delete');
+    Route::get('/ticket-delete/{ticket_id}', '\App\Http\Controllers\AdminController@delete')->name('delete');
 });

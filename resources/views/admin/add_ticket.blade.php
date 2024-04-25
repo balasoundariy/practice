@@ -3,7 +3,7 @@
 @section('content')
     <div class="payment_sec_head">
         <a class="icon_arr" onclick="window.history.back();"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> </a>
-        <h1 class="payment_h1">Ticket details</h1>
+        <h1 class="payment_h1">Ticket</h1>
     </div>
     <div class="tic_container">
         <form action="{{route('store')}}" method="post">
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="td_btn_con next_btn">
-                <button class="td_btn" type="submit">next</button>
+                <button class="td_btn" type="submit">Add</button>
             </div>
         </form>
     </div>

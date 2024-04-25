@@ -2,6 +2,7 @@
 
         @auth()
         <div class="header_con">
+            <div class="hamburger sidemenu_clk"> <i class="fa fa-bars" aria-hidden="true"></i> </div>
         <div class="main_logo">
             <a href="{{route('home')}}">
             <img src="{{asset('/img/logo.png')}}" class="cart" alt="cart">
@@ -16,6 +17,7 @@
 </div>
         @else
         <div class="header_con flex_start">
+            <div class="hamburger sidemenu_clk" > <i class="fa fa-bars" aria-hidden="true"></i> </div>
         <div class="main_logo">
         <a href="#">
             <img src="{{asset('/img/logo.png')}}" class="cart" alt="cart">
@@ -29,3 +31,5 @@
         @endauth
     </div>
 </header>
+
+@include('admin.side_menu')

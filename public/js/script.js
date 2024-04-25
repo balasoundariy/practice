@@ -30,3 +30,15 @@ $(".ticket_select").click(function() {
     $(this).addClass('active');
 })
 
+$(".sidemenu_clk").click(function() {
+    $("body").css('overflow','hidden');
+     $('#myNav').removeClass('open');
+     $('#myNav').addClass('open');
+})
+
+$(".menu_close").click(function() {
+    $("body").css('overflow','auto');
+    $('#myNav').removeClass('open');
+})
+
+

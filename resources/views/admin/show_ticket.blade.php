@@ -3,6 +3,7 @@
 @section('content')
     <div class="main_container">
         <h1>show tickets</h1>
+        <a href="{{route('add')}}">create ticket</a>
         @if(isset($tickets) && !empty($tickets))
             <div class="summaary_cart_con">
                 <div class="shoping_cart_head black_bg">
@@ -15,7 +16,8 @@
                             <div class="sc_name">{{$ticket['ticket_price']}}</div>
                             <div class="sc_series"> {{$ticket['description']}}</div>
                             <div class="sc_amount"> {{$ticket['status']}}</div>
-                            <div class="sc_del"> <i class="fa fa-minus-circle delete_icon" aria-hidden="true"></i></div>
+                            <div class="sc_del editicon"><a href="{{route('edit',$ticket['id'])}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a></div>
+                            <div class="sc_del"> <a href="{{route('delete',$ticket['id'])}}"> <i class="fa fa-trash-o del_icon" aria-hidden="true"></i></a></div>
                         </div>
                 @endforeach
             </div>
