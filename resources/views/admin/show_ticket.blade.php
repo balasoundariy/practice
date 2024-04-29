@@ -1,23 +1,32 @@
 @extends('layout.layout')
 
 @section('content')
-    <div class="main_container">
-        <h1>show tickets</h1>
-        <a href="{{route('add')}}">create ticket</a>
+    <div class="payment_sec_head">
+        <a class="icon_arr" onclick="window.history.back();"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> </a>
+        <h1 class="payment_h1">Ticket</h1>
+    </div>
+    <div class="main_container admin_panel_pt" style="padding-top: 0px">
+
+        <div class="create_tic_btn">
+            <a   href="{{route('add')}}">create ticket <i class="fa fa-plus" aria-hidden="true"></i></a>
+        </div>
+
+
         @if(isset($tickets) && !empty($tickets))
             <div class="summaary_cart_con">
                 <div class="shoping_cart_head black_bg">
                     <div class="sc_name">Ticket Amount</div>
                     <div class="sc_series"> Description</div>
                     <div class="sc_amount"> Status</div>
+                    <div class="sc_del"> </div>
                 </div>
                 @foreach($tickets as $ticket)
                         <div class="shoping_cart_head">
                             <div class="sc_name">{{$ticket['ticket_price']}}</div>
                             <div class="sc_series"> {{$ticket['description']}}</div>
                             <div class="sc_amount"> {{$ticket['status']}}</div>
-                            <div class="sc_del editicon"><a href="{{route('edit',$ticket['id'])}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a></div>
-                            <div class="sc_del"> <a href="{{route('delete',$ticket['id'])}}"> <i class="fa fa-trash-o del_icon" aria-hidden="true"></i></a></div>
+                            <div class="sc_del"><a style="padding-right: 15px" href="{{route('edit',$ticket['id'])}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a>
+                            <a href="{{route('delete',$ticket['id'])}}"> <i class="fa fa-trash-o del_icon" aria-hidden="true"></i></a></div>
                         </div>
                 @endforeach
             </div>

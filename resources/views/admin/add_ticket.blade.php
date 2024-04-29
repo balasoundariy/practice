@@ -5,15 +5,15 @@
         <a class="icon_arr" onclick="window.history.back();"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> </a>
         <h1 class="payment_h1">Ticket</h1>
     </div>
-    <div class="tic_container">
+    <div class="main_container admin_panel_edittic" style="padding-top: 0px">
         <form action="{{route('store')}}" method="post">
             @csrf
             <div class="tic_details_con">
-                <div class="col_md_8">
+                <div class="col_md_12">
                     <p class="ticdet_p">Ticket price</p>
                     <input type="text" inputmode="numeric" name="ticket_price">
                 </div>
-                <div class="col_md_2">
+                <div class="col_md_12">
                     <p class="ticdet_p">Description</p>
                     <input type="text" name="description">
                 </div>
