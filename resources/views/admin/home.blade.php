@@ -3,6 +3,30 @@
 @section('content')
     <div class="main_container">
         @auth()
+
+
+<div class="tic_con_rk">
+
+<div class="wid_50">
+<p class="home_tic_lbl"> Total Tickets</p>
+<p class="home_tic_det">1500 </p>    
+</div>
+<div class="wid_50">
+    <p class="home_tic_lbl" > Number of User</p>
+    <p class="home_tic_det" >1500 </p>    
+ </div>
+<div class="wid_50">
+<p class="home_tic_lbl"> Number of Orders</p>
+<p class="home_tic_det" >1500 </p>    
+ </div>
+<div class="wid_50">
+<p class="home_tic_lbl"> Number of Orders</p>
+<p class="home_tic_det" >1500 </p>   </div>
+
+</div>
+
+<p class="recent_orders"> Recent Orders </p>
+
             @if(isset($tickets) && !empty($tickets))
                 <div class="summaary_cart_con">
                     <div class="shoping_cart_head black_bg">

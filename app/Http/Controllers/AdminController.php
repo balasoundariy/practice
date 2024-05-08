@@ -54,7 +54,7 @@ class AdminController extends Controller
 
     public function getOrdersHistory()
     {
-        $tickets = Order::all()->toArray();
+        $tickets = Order::with('user')->get();
         return view('admin.orders_history', compact('tickets'));
     }
 }

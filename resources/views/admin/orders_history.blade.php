@@ -1,45 +1,71 @@
 @extends('layout.layout')
 
 @section('content')
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+
     <div class="payment_sec_head">
         <a class="icon_arr" onclick="window.history.back();"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> </a>
         <h1 class="payment_h1">Orders</h1>
     </div>
+<div class="order_his_filter_sec"> 
+    <div class="ohf_div">
+<input type="text" id="datepicker" placeholder="Select Date">
+</div>
+<div class="ohf_div">
+<input type="text"  placeholder="Enter UserName">
+</div>
+<div class="exp_con">
+<button class="export_btn" onclick="export_myFunction()"> Export </button>
+<div class="dropdown-content" id="exp_myDropdown">
+                <a href="#">PDF</a>
+                <a href="#">XlS</a>
+                <a href="#">CSV</a>
+            </div>
+</div>
+</div>
+
     <div class="main_container admin_panel_edittic" style="padding-top: 0px">
         @auth()
             @if(isset($tickets) && !empty($tickets))
+                @php
+                    $count = 1;
+                @endphp
                 <div class="accordion order_hs_sec">
                     @foreach($tickets as $ticket)
-                        @foreach(json_decode($ticket['ticket_no']) as $key => $number)
+                        @foreach(json_decode($ticket->ticket_no) as $key => $number)
                             <div class="at-item">
-                        <div class="at-title active">
-                            <div class="order_hs_innersec">
-                                <p class="oh_ticknumber" > <label> Ticket No : </label> {{$number}}</p>
-                                <p class="status cancel">Pending</p>
+                                <div class="at-title @if($count == 1)active @endif">
+                                    <div class="order_hs_innersec">
+                                        <p class="oh_ticknumber" > <label> Ticket No : </label> {{$number}}</p>
+                                        <p class="status cancel">Pending</p>
+                                    </div>
+                                </div>
+                                <div class="at-tab" @if($count == 1)style="display: block;" @endif>
+                                    <div class="acc_or_con">
+                                        <div class="acc_col_4 ord_his_acc_rk">
+                                            <label> User </label>
+                                            <span>{{$ticket->user->name}}</span>
+                                        </div>
+                                        <div class="acc_col_4 ord_his_acc_rk">
+                                            <label> Chance</label>
+                                            <span>{{json_decode($ticket->chances)[$key]}}</span>
+                                        </div>
+                                        <div class="acc_col_4 ord_his_acc_rk">
+                                            <label> Ticket Amount</label>
+                                            <span>{{$ticket->ticket_amount}}</span>
+                                        </div>
+                                        <div class="acc_col_4 ord_his_acc_rk">
+                                            <label> date</label>
+                                            <span>{{date('d-m-Y', strtotime($ticket->created_at))}}</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="at-tab" style="display: block;">
-                            <div class="acc_or_con">
-                                <div class="acc_col_4">
-                                    <label> User </label>
-                                    <span>541225</span>
-                                </div>
-                                <div class="acc_col_4">
-                                    <label> Chance</label>
-                                    <span>{{json_decode($ticket['chances'])[$key]}}</span>
-                                </div>
-                                <div class="acc_col_4">
-                                    <label> Amount</label>
-                                    <span>{{$ticket['ticket_amount']}}</span>
-                                </div>
-                                <div class="acc_col_4">
-                                    <label> date</label>
-                                    <span>{{$ticket['created_at']}}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                         @endforeach
+                        @php
+                            $count++;
+                        @endphp
                     @endforeach
                 </div>
             @else
@@ -56,6 +82,8 @@
 @section('scripts')
 <script>
     $(document).ready(function () {
+        $( "#datepicker" ).datepicker();
+
         $(".at-title").click(function () {
             $(this)
                 .toggleClass("active")
@@ -69,7 +97,10 @@
                 .removeClass("active");
         });
     });
-
+    function export_myFunction() {
+    
+        document.getElementById("exp_myDropdown").classList.toggle("show");
+    }
 </script>
 
 @endsection
