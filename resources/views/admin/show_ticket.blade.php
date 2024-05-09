@@ -15,7 +15,7 @@
         @if(isset($tickets) && !empty($tickets))
             <div class="summaary_cart_con">
                 <div class="shoping_cart_head black_bg">
-                    <div class="sc_name">Ticket Amount</div>
+                    <div class="sc_name">Ticket Price</div>
                     <div class="sc_series"> Description</div>
                     <div class="sc_amount"> Status</div>
                     <div class="sc_del"> </div>

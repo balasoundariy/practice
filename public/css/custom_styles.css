@@ -1137,7 +1137,7 @@ background: #fff;
 
 .overlay .header {
 
-        background: yellow;
+        background: #ffe000;
         backdrop-filter: blur(35px);
         -webkit-backdrop-filter: blur(35px);
         padding: 13px 16px;
@@ -1210,7 +1210,7 @@ background: #fff;
     max-width: 180px;
     margin: 0 auto;
     border-radius: 4px;
-    margin: 10px 0px;
+    margin: 0px 20px 10px 0px;
     font-size: 10px;
 }
 .admin_panel_pt .sc_name
@@ -1269,7 +1269,7 @@ font-size: 17px;
     border: 1px solid #dddddd;
     border-top: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #e2e2e2;
+    background-color: #fffa90;
     margin: 0px 10px 10px 10px;
     border-radius: 0px 0px 8px 8px;
 }
@@ -1323,7 +1323,7 @@ font-size: 17px;
     justify-content: space-between;
     align-items: center;
     padding: 10px 35px 10px 15px;
-    background: #dcdcdc;
+    background: #ffe000;
     margin: 0px 10px;
 }
 .oh_ticknumber
@@ -1401,7 +1401,7 @@ width: 40%;
 {
 width: 100%;
 padding: 2px 2px;
-font-size: 12px;    
+font-size: 12px;
 }
 .export_btn
 {

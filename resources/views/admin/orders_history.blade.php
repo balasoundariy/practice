@@ -8,7 +8,7 @@
         <a class="icon_arr" onclick="window.history.back();"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> </a>
         <h1 class="payment_h1">Orders</h1>
     </div>
-<div class="order_his_filter_sec"> 
+<div class="order_his_filter_sec">
     <div class="ohf_div">
 <input type="text" id="datepicker" placeholder="Select Date">
 </div>
@@ -52,7 +52,7 @@
                                             <span>{{json_decode($ticket->chances)[$key]}}</span>
                                         </div>
                                         <div class="acc_col_4 ord_his_acc_rk">
-                                            <label> Ticket Amount</label>
+                                            <label> Ticket Price</label>
                                             <span>{{$ticket->ticket_amount}}</span>
                                         </div>
                                         <div class="acc_col_4 ord_his_acc_rk">
@@ -98,7 +98,7 @@
         });
     });
     function export_myFunction() {
-    
+
         document.getElementById("exp_myDropdown").classList.toggle("show");
     }
 </script>

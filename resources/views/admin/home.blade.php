@@ -8,20 +8,20 @@
 <div class="tic_con_rk">
 
 <div class="wid_50">
-<p class="home_tic_lbl"> Total Tickets</p>
-<p class="home_tic_det">1500 </p>    
+<p class="home_tic_lbl"> Total Orders</p>
+<p class="home_tic_det">{{$order_count}} </p>
 </div>
 <div class="wid_50">
-    <p class="home_tic_lbl" > Number of User</p>
-    <p class="home_tic_det" >1500 </p>    
+    <p class="home_tic_lbl"> Today Orders</p>
+    <p class="home_tic_det">{{$today_order_count}} </p>
  </div>
 <div class="wid_50">
-<p class="home_tic_lbl"> Number of Orders</p>
-<p class="home_tic_det" >1500 </p>    
+<p class="home_tic_lbl">Total Tickets</p>
+<p class="home_tic_det" >{{$ticket_count}} </p>
  </div>
 <div class="wid_50">
-<p class="home_tic_lbl"> Number of Orders</p>
-<p class="home_tic_det" >1500 </p>   </div>
+<p class="home_tic_lbl"> Number of Users</p>
+<p class="home_tic_det">{{$user_count}} </p>   </div>
 
 </div>
 
@@ -30,18 +30,18 @@
             @if(isset($tickets) && !empty($tickets))
                 <div class="summaary_cart_con">
                     <div class="shoping_cart_head black_bg">
-                        <div class="sc_name">Number</div>
+                        <div class="sc_amount"> User</div>
+                        <div class="sc_name">Number choosed</div>
                         <div class="sc_series"> Chance</div>
-                        <div class="sc_amount"> Amount</div>
                         <div class="sc_amount"> Amount</div>
                     </div>
                     @foreach($tickets as $ticket)
                         @foreach(json_decode($ticket['ticket_no']) as $key => $number)
                             <div class="shoping_cart_head">
+                                <div class="sc_del"> {{$ticket['user']['name']}}</div>
                                 <div class="sc_name">{{$number}}</div>
                                 <div class="sc_series"> {{json_decode($ticket['chances'])[$key]}}</div>
                                 <div class="sc_amount"> {{$ticket['ticket_amount']}}</div>
-                                <div class="sc_del"> <i class="fa fa-minus-circle delete_icon" aria-hidden="true"></i></div>
                             </div>
                         @endforeach
                     @endforeach
