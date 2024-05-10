@@ -31,4 +31,5 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/ticket-store', '\App\Http\Controllers\AdminController@store')->name('store');
     Route::post('/ticket-update', '\App\Http\Controllers\AdminController@update')->name('update');
     Route::get('/ticket-delete/{ticket_id}', '\App\Http\Controllers\AdminController@delete')->name('delete');
+    Route::get('/export/{type}', '\App\Http\Controllers\AdminController@export')->name('export');
 });

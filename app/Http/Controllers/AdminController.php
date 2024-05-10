@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\OrderHistory;
 use App\Models\Order;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminController extends Controller
 {
@@ -56,5 +58,12 @@ class AdminController extends Controller
     {
         $tickets = Order::with('user')->get();
         return view('admin.orders_history', compact('tickets'));
+    }
+
+    public function export($type)
+    {
+        if($type == 'excel'){
+            return Excel::download(new OrderHistory(), 'tickets_purchased.xlsx');
+        }
     }
 }

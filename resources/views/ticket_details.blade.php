@@ -33,10 +33,46 @@
             <div class="tic_dt_min_height">
                 <div class="tic_details_con">
                     <div class="col_md_8">
-                        <input type="number" inputmode="numeric" name="ticket_no[]">
+                        <input type="number" inputmode="numeric" name="ticket_no[]" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "3">
                     </div>
                     <div class="col_md_2">
-                        <input type="number" inputmode="numeric" name="chances[]">
+                        <input type="number" inputmode="numeric" name="chances[]" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1">
+                    </div>
+                    <div class="col_md_1 dev_delete " > <i class="fa fa-trash-o del_icon" aria-hidden="true"></i></div>
+                </div>
+                <div class="tic_details_con">
+                    <div class="col_md_8">
+                        <input type="number" inputmode="numeric" name="ticket_no[]" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "3">
+                    </div>
+                    <div class="col_md_2">
+                        <input type="number" inputmode="numeric" name="chances[]" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1">
+                    </div>
+                    <div class="col_md_1 dev_delete " > <i class="fa fa-trash-o del_icon" aria-hidden="true"></i></div>
+                </div>
+                <div class="tic_details_con">
+                    <div class="col_md_8">
+                        <input type="number" inputmode="numeric" name="ticket_no[]" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "3">
+                    </div>
+                    <div class="col_md_2">
+                        <input type="number" inputmode="numeric" name="chances[]" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1">
+                    </div>
+                    <div class="col_md_1 dev_delete " > <i class="fa fa-trash-o del_icon" aria-hidden="true"></i></div>
+                </div>
+                <div class="tic_details_con">
+                    <div class="col_md_8">
+                        <input type="number" inputmode="numeric" name="ticket_no[]" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "3">
+                    </div>
+                    <div class="col_md_2">
+                        <input type="number" inputmode="numeric" name="chances[]" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1">
+                    </div>
+                    <div class="col_md_1 dev_delete " > <i class="fa fa-trash-o del_icon" aria-hidden="true"></i></div>
+                </div>
+                <div class="tic_details_con">
+                    <div class="col_md_8">
+                        <input type="number" inputmode="numeric" name="ticket_no[]" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "3">
+                    </div>
+                    <div class="col_md_2">
+                        <input type="number" inputmode="numeric" name="chances[]" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1">
                     </div>
                     <div class="col_md_1 dev_delete " > <i class="fa fa-trash-o del_icon" aria-hidden="true"></i></div>
                 </div>
@@ -60,10 +96,10 @@
     <script>
         let content = `<div class="tic_details_con">
                 <div class="col_md_8">
-                    <input type="number" inputmode="numeric" name="ticket_no[]">
+                    <input type="number" inputmode="numeric" name="ticket_no[]" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "3">
                 </div>
                 <div class="col_md_2">
-                    <input type="number" inputmode="numeric" name="chances[]">
+                    <input type="number" inputmode="numeric" name="chances[]" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1">
                 </div>
                 <div class="col_md_1 dev_delete " > <i class="fa fa-trash-o del_icon" aria-hidden="true"></i></div>
             </div>`;

@@ -3,30 +3,25 @@
 @section('content')
     <div class="main_container">
         @auth()
-
-
-<div class="tic_con_rk">
-
-<div class="wid_50">
-<p class="home_tic_lbl"> Total Orders</p>
-<p class="home_tic_det">{{$order_count}} </p>
-</div>
-<div class="wid_50">
-    <p class="home_tic_lbl"> Today Orders</p>
-    <p class="home_tic_det">{{$today_order_count}} </p>
- </div>
-<div class="wid_50">
-<p class="home_tic_lbl">Total Tickets</p>
-<p class="home_tic_det" >{{$ticket_count}} </p>
- </div>
-<div class="wid_50">
-<p class="home_tic_lbl"> Number of Users</p>
-<p class="home_tic_det">{{$user_count}} </p>   </div>
-
-</div>
-
-<p class="recent_orders"> Recent Orders </p>
-
+            <div class="tic_con_rk">
+                <div class="wid_50">
+                    <p class="home_tic_lbl"> Total Orders</p>
+                    <p class="home_tic_det">{{$order_count}} </p>
+                </div>
+                <div class="wid_50">
+                    <p class="home_tic_lbl"> Today Orders</p>
+                    <p class="home_tic_det">{{$today_order_count}} </p>
+                </div>
+                <div class="wid_50">
+                    <p class="home_tic_lbl">Total Tickets</p>
+                    <p class="home_tic_det" >{{$ticket_count}} </p>
+                </div>
+                <div class="wid_50">
+                    <p class="home_tic_lbl"> Total Users</p>
+                    <p class="home_tic_det">{{$user_count}} </p>
+                </div>
+            </div>
+            <p class="recent_orders"> Recent Orders </p>
             @if(isset($tickets) && !empty($tickets))
                 <div class="summaary_cart_con">
                     <div class="shoping_cart_head black_bg">
@@ -47,7 +42,9 @@
                     @endforeach
                 </div>
             @else
-                <h1>No data found</h1>
+                <div class="or_hs_no_home">
+                    <span>No recent orders</span>
+                </div>
             @endif
         @else
 

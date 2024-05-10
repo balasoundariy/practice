@@ -17,7 +17,7 @@ class HomeController extends Controller
         if(Auth::check()){
             $user_type = Auth::user()->role;
             if($user_type == 'admin'){
-                $user_count = User::all()->count();
+                $user_count = User::where('role','!=','admin')->get()->count();
                 $ticket_count = Ticket::all()->count();
                 $order_count = Order::all()->count();
                 $today_order_count = Order::whereDate('created_at', Carbon::today())->get()->count();
