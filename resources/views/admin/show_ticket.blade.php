@@ -18,7 +18,7 @@
                     <div class="sc_name">Ticket Price</div>
                     <div class="sc_series"> Description</div>
                     <div class="sc_amount"> Status</div>
-                    <div class="sc_del"> </div>
+                    <div class="sc_del"> Action</div>
                 </div>
                 @foreach($tickets as $ticket)
                         <div class="shoping_cart_head">

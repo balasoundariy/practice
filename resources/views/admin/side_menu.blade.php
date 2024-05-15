@@ -19,6 +19,18 @@
                     </a>
                 </li>
                 <li class="card_list_li">
+                    <a href="{{route('show')}}">
+                        <div class="sb_card_inner gap_8">
+                            <!-- <div class="Scard_img_holder">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                            </div> -->
+                            <div class="card_det_text">
+                                <p>Ticket</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="card_list_li">
                     <a href="{{route('get_orders')}}">
                         <div class="sb_card_inner gap_8">
                             <!-- <div class="Scard_img_holder">
@@ -31,13 +43,13 @@
                     </a>
                 </li>
                 <li class="card_list_li">
-                    <a href="{{route('show')}}">
+                    <a href="{{route('settlements')}}">
                         <div class="sb_card_inner gap_8">
                             <!-- <div class="Scard_img_holder">
                                 <i class="fa fa-sign-out" aria-hidden="true"></i>
                             </div> -->
                             <div class="card_det_text">
-                                <p>Ticket</p>
+                                <p>Settlements</p>
                             </div>
                         </div>
                     </a>

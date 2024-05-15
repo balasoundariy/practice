@@ -20,6 +20,10 @@
                 <input type="text" name="description" value="{{$ticket['description']}}">
             </div>
             <div class="col_md_12">
+                <p class="ticdet_p">Active</p>
+                <input type="text" inputmode="numeric" name="status" value="{{$ticket['is_active']}}">
+            </div>
+            <div class="col_md_12">
                 <p class="ticdet_p">Status</p>
                 <input type="text" inputmode="numeric" name="status" value="{{$ticket['status']}}">
             </div>

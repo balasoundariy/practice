@@ -7,72 +7,71 @@
         <a class="icon_arr" onclick="window.history.back();"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> </a>
         <h1 class="payment_h1">Orders</h1>
     </div>
-@if(isset($tickets) && count($tickets) > 0)
     <div class="order_his_filter_sec">
         <div class="ohf_div">
-            <input type="text" id="datepicker" placeholder="Select Date">
+{{--            <input type="text" id="datepicker" placeholder="Select Date">--}}
+            <input type="text"  placeholder="Enter order no" id="order_no">
         </div>
         <div class="ohf_div">
-            <input type="text"  placeholder="Enter UserName" id="user_name">
+            <input type="text"  placeholder="Enter ticket no" id="ticket_no">
         </div>
         <div class="exp_con">
             <button class="export_btn" onclick="export_myFunction()"> Export </button>
             <div class="dropdown-content" id="exp_myDropdown">
-                <a href="#">PDF</a>
-                <a href="{{route('export','excel')}}">Excel</a>
-                <a href="#">CSV</a>
+                <a id="exportBtn">Excel</a>
             </div>
         </div>
     </div>
-@endif
     <div class="main_container admin_panel_edittic" style="padding-top: 0px">
         @auth()
-            @if(isset($tickets) && count($tickets) > 0)
-                @php
-                    $count = 1;
-                @endphp
+{{--            @if(isset($tickets) && count($tickets) > 0)--}}
+{{--                @php--}}
+{{--                    $count = 1;--}}
+{{--                @endphp--}}
                 <div class="accordion order_hs_sec">
-                    @foreach($tickets as $ticket)
-                        @foreach(json_decode($ticket->ticket_no) as $key => $number)
-                            <div class="at-item">
-                                <div class="at-title">
-                                    <div class="order_hs_innersec">
-                                        <p class="oh_ticknumber" > <label> Ticket No : </label> {{$number}}</p>
-                                        <p class="status cancel">Pending</p>
-                                    </div>
-                                </div>
-                                <div class="at-tab" @if($count == 1)style="display: block;" @endif>
-                                    <div class="acc_or_con">
-                                        <div class="acc_col_4 ord_his_acc_rk">
-                                            <label> User </label>
-                                            <span>{{$ticket->user->name}}</span>
-                                        </div>
-                                        <div class="acc_col_4 ord_his_acc_rk">
-                                            <label> Chance</label>
-                                            <span>{{json_decode($ticket->chances)[$key]}}</span>
-                                        </div>
-                                        <div class="acc_col_4 ord_his_acc_rk">
-                                            <label> Ticket Price</label>
-                                            <span>{{$ticket->ticket_amount}}</span>
-                                        </div>
-                                        <div class="acc_col_4 ord_his_acc_rk">
-                                            <label> date</label>
-                                            <span>{{date('d-m-Y', strtotime($ticket->created_at))}}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            @php
-                                $count++;
-                            @endphp
-                        @endforeach
-                    @endforeach
+{{--                    @foreach($tickets as $ticket)--}}
+{{--                        @foreach(json_decode($ticket->ticket_no) as $key => $number)--}}
+{{--                            <div class="at-item">--}}
+{{--                                <div class="at-title">--}}
+{{--                                    <div class="order_hs_innersec">--}}
+{{--                                        <p class="oh_ticknumber" > <label> Ticket No : </label> {{$number}}</p>--}}
+{{--                                        <p class="status cancel">Pending</p>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="at-tab" @if($count == 1)style="display: block;" @endif>--}}
+{{--                                    <div class="acc_or_con">--}}
+{{--                                        <div class="acc_col_4 ord_his_acc_rk">--}}
+{{--                                            <label> Name </label>--}}
+{{--                                            <span>{{$ticket->user->name}}</span>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="acc_col_4 ord_his_acc_rk">--}}
+{{--                                            <label> Chance</label>--}}
+{{--                                            @foreach(json_decode($ticket->chances) as $chances)--}}
+{{--                                            <span>{{$chances}}</span>--}}
+{{--                                            @endforeach--}}
+{{--                                        </div>--}}
+{{--                                        <div class="acc_col_4 ord_his_acc_rk">--}}
+{{--                                            <label> Ticket Price</label>--}}
+{{--                                            <span>{{$ticket->ticket_amount}}</span>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="acc_col_4 ord_his_acc_rk">--}}
+{{--                                            <label> Placed at</label>--}}
+{{--                                            <span>{{date('d-m-Y', strtotime($ticket->created_at))}}</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            @php--}}
+{{--                                $count++;--}}
+{{--                            @endphp--}}
+{{--                        @endforeach--}}
+{{--                    @endforeach--}}
                 </div>
-            @else
-                <div class="or_hs_no">
-                    <span>No data found</span>
-                </div>
-            @endif
+{{--            @else--}}
+{{--                <div class="or_hs_no">--}}
+{{--                    <span>No data found</span>--}}
+{{--                </div>--}}
+{{--            @endif--}}
         @else
             <div class="or_hs_no">
                 <span>No data found</span>
@@ -86,9 +85,9 @@
 @section('scripts')
 <script>
     $(document).ready(function () {
-        $( "#datepicker" ).datepicker();
+        $( "#datepicker" ).datepicker({ dateFormat: 'dd-mm-yy' });
 
-        $(".at-title").click(function () {
+        $("body").on('click','.at-title',function () {
             $(this)
                 .toggleClass("active")
                 .next(".at-tab")
@@ -102,11 +101,84 @@
         });
     });
 
-    {{--$('#user_name').on('change',function () {--}}
-    {{--    $.ajax({--}}
-    {{--        url: '{{route('export','excel')}}'--}}
-    {{--    })--}}
-    {{--})--}}
+    $('#ticket_no, #order_no').on('change',function () {
+        let ticket = $('#ticket_no').val();
+        let order = $('#order_no').val()
+        filter_data(ticket,order)
+    })
+
+    function filter_data(ticket_no,order_no){
+        $.ajax({
+            url: '{{route("get_orders")}}',
+            type: 'GET',
+            data: {
+                ticket_no:ticket_no,
+                order_no:order_no
+            },
+            success: function (response) {
+                let html='';
+                let count = 1;
+                $.each(response, function( index, value ) {
+                    html += `<div class="at-item">
+                            <div class="at-title">
+                                <div class="order_hs_innersec">
+                                    <p class="oh_ticknumber" > <label> ${value.user.name.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+                                                                            return letter.toUpperCase();
+                                                                        })} </label></p>
+                                    <p class="status">${$.datepicker.formatDate('dd-mm-yy', new Date(value.created_at))}</p>
+                                </div>
+                            </div>
+                            <div class="at-tab" ${ count == 1 ? 'style="display: block;"' :"" }>
+                                <div class="acc_or_con">
+                                    <div class="acc_col_4 ord_his_acc_rk">
+                                        <label> Mobile No </label>
+                                        <span>${value.user.mobile_no}</span>
+                                    </div>
+                                    <div class="acc_col_4 ord_his_acc_rk">
+                                        <label> Ticket Price</label>
+                                        <span>${value.ticket_amount}</span>
+                                    </div>
+                                    <div class="acc_col_4 ord_his_acc_rk">
+                                        <label> Ticket No </label>`;
+                                        $.each(JSON.parse(value.ticket_no),function(i,v){
+                                            if(v == ticket_no){
+                                                html += `<span style="color: red">${v}</span>`;
+                                            }else{
+                                                html += `<span>${v}</span>`;
+                                            }
+                                        })
+                                    html += `</div>
+                                    <div class="acc_col_4 ord_his_acc_rk">
+                                        <label> Chance</label>`;
+                                        $.each(JSON.parse(value.chances),function(i,v){
+                                            html += `<span>${v}</span>`;
+                                        })
+                                    html += `</div>
+                                </div>
+                            </div>
+                        </div>`;
+                    count++;
+                });
+                $('.accordion.order_hs_sec').html(html)
+            }
+        });
+    }
+
+    $('#exportBtn').on('click', function () {
+        let ticket_no = $('#ticket_no').val();
+        let order_no = $('#order_no').val()
+        if(ticket_no != ''){
+            var query_string = 'ticket_no='+ticket_no;
+        }
+        if(order_no != ''){
+            var query_string = 'order_no='+order_no;
+        }
+        if(ticket_no != '' && order_no != ''){
+            var query_string = 'ticket_no='+ticket_no+'&order_no='+order_no;
+        }
+        var exportUrl = "{{ route('export') }}" + "?"+query_string;
+        window.location.href = exportUrl;
+    });
 
     function export_myFunction() {
         document.getElementById("exp_myDropdown").classList.toggle("show");

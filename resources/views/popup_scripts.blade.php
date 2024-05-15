@@ -70,7 +70,7 @@
                         if(response.status == 200){
                             toastr.success(response.message)
                             setTimeout(function(){
-                                window.location = '{{route('home')}}';
+                                window.location = '{{route('ticket')}}';
                             },1000);
                         }else{
                             toastr.error(response.message);
@@ -108,10 +108,17 @@
                 },
                 success:function (response){
                     if(response.status == 200){
+                        console.log()
                         toastr.success(response.message)
-                        setTimeout(function(){
-                            window.location = '{{route('home')}}';
-                        },1000);
+                        if(response.role == 'admin'){
+                            setTimeout(function(){
+                                window.location = '{{route('home')}}';
+                            },1000);
+                        }else{
+                            setTimeout(function(){
+                                window.location = '{{route('ticket')}}';
+                            },1000);
+                        }
                     }else{
                         toastr.error(response.message);
                     }

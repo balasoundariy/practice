@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('ticket_price');
             $table->string('description');
-            $table->string('status');
+            $table->tinyInteger('is_active')->default(1);
+            $table->string('status')->default(1);
             $table->timestamps();
         });
     }

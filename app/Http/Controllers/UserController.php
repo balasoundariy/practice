@@ -74,8 +74,10 @@ class UserController extends Controller
         if($user){
             if(Hash::check($request->password, $user->password)){
                 Auth::loginUsingId($user->id);
+                $user_type = $user->role;
                 return Response()->json([
                     'status' => 200,
+                    'role' => $user_type,
                     'message'=>'Login Success!'
                 ]);
             }else{

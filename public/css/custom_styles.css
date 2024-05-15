@@ -505,7 +505,7 @@ border: 2px solid #000;
 .tic_dt_min_height
 {
     min-height: 330px;
-    max-height: 330px;
+    max-height: 400px;
     overflow-y: scroll;
 
 }
@@ -1096,7 +1096,7 @@ width:100%;
 }
 .sc_del
 {
-    width:15%;
+    width:22%;
     text-align:center;
 }
 .shoping_cart_head div
@@ -1375,6 +1375,7 @@ font-size: 15px;
     justify-content: space-between;
     align-items: flex-start;
     width:50%;
+    margin-bottom: 10px;
     flex-direction: column;
 }
 .overlay .header p{
@@ -1383,7 +1384,7 @@ font-size: 17px;
 .ord_his_acc_rk label
 {
     font-size: 13px;
-    color: #7d7d7d;
+    color: #000;
     font-weight: 600;
 }
 .ord_his_acc_rk span

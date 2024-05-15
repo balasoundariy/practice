@@ -9,7 +9,9 @@
     <div class="summaary_cart_con" style="">
         <div class="shoping_cart">
             <div class="shoping_c_left">Summary</div>
-            <div class="sc_del"> <i class="fa fa-trash-o " aria-hidden="true"></i></div>
+            <div class="sc_del">
+{{--                <i class="fa fa-trash-o " aria-hidden="true"></i>--}}
+            </div>
         </div>
         <div class="shoping_cart_head black_bg">
             <div class="sc_name">Number</div>
@@ -42,6 +44,23 @@
 
 @section('scripts')
     <script>
+        {{--$('body').on('click','.delete_icon',function () {--}}
+        {{--    $.ajax({--}}
+        {{--        url: '{{route('payment')}}',--}}
+        {{--        type:'get',--}}
+        {{--        success:function (response){--}}
+        {{--            if(response.status == 200){--}}
+        {{--                $('.success_popup').show();--}}
+        {{--            }else{--}}
+
+        {{--            }--}}
+        {{--        },--}}
+        {{--        error:function (){--}}
+
+        {{--        }--}}
+        {{--    })--}}
+        {{--})--}}
+
         $('body').on('click','#payment',function () {
             $.ajax({
                 url: '{{route('payment')}}',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\OrderHistory;
 use App\Models\Order;
 use App\Models\Ticket;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
@@ -33,6 +34,7 @@ class AdminController extends Controller
         $ticket = new Ticket();
         $ticket->ticket_price = $request->ticket_price;
         $ticket->description = $request->description;
+        $ticket->is_active = 1;
         $ticket->status = 1;
         $ticket->save();
         return redirect()->route('show');
@@ -43,6 +45,7 @@ class AdminController extends Controller
         $ticket = Ticket::find($request->id);
         $ticket->ticket_price = $request->ticket_price;
         $ticket->description = $request->description;
+        $ticket->is_active = $request->is_active;
         $ticket->status = $request->status;
         $ticket->save();
         return redirect()->route('show');
@@ -54,16 +57,30 @@ class AdminController extends Controller
         return redirect()->route('show');
     }
 
-    public function getOrdersHistory()
+    public function getOrdersHistory(Request $request)
     {
-        $tickets = Order::with('user')->get();
-        return view('admin.orders_history', compact('tickets'));
+        $tickets = Order::with('user');
+        $tickets = $tickets->when($request->filled('order_no'), function ($query) use ($request) {
+            $query->where('order_no', $request->order_no);
+        });
+        $tickets = $tickets->when($request->filled('ticket_no'), function ($query) use ($request) {
+            $query->whereJsonContains('ticket_no', $request->ticket_no);
+        });
+        $tickets = $tickets->get();
+        if (isset($request->ticket_no) || isset($request->order_no)){
+            return response()->json($tickets);
+        }else{
+            return view('admin.orders_history', compact('tickets'));
+        }
     }
 
-    public function export($type)
+    public function settlements()
     {
-        if($type == 'excel'){
-            return Excel::download(new OrderHistory(), 'tickets_purchased.xlsx');
-        }
+        return view('admin.settlements');
+    }
+
+    public function export(Request $request)
+    {
+        return Excel::download(new OrderHistory($request->input('ticket_no'),$request->input('order_no')), 'tickets_sold.xlsx');
     }
 }

@@ -23,9 +23,9 @@ class TicketController extends Controller
 
     public function summary(Request $request)
     {
-        $order_id = session()->has('order_id')? session()->get('order_id'): false;
-        if($order_id){
-            $orders = Order::find($order_id);
+        $order_no = session()->has('order_id')? session()->get('order_id'): false;
+        if($order_no){
+            $orders = Order::find($order_no);
             $orders->ticket_amount = $request->ticket_amount;
             $orders->ticket_no = json_encode($request->ticket_no);
             $orders->chances = json_encode($request->chances);
@@ -34,13 +34,15 @@ class TicketController extends Controller
         }else{
             $orders = new Order();
             $orders->user_id = Auth::user()->id;
+            $order_no = random_int(100000, 999999);
+            $orders->order_no = $order_no;
             $orders->ticket_amount = $request->ticket_amount;
             $orders->ticket_no = json_encode($request->ticket_no);
             $orders->chances = json_encode($request->chances);
             $orders->total = $this->calculate_amount($request->ticket_amount ,$request->chances);
             $orders->payment_status = 1;
             $orders->save();
-            session()->put('order_id',$orders->id);
+            session()->put('order_id',$order_no);
         }
         return view('summary',['tickets' => $orders]);
     }
