@@ -24,54 +24,12 @@
     </div>
     <div class="main_container admin_panel_edittic" style="padding-top: 0px">
         @auth()
-{{--            @if(isset($tickets) && count($tickets) > 0)--}}
-{{--                @php--}}
-{{--                    $count = 1;--}}
-{{--                @endphp--}}
-                <div class="accordion order_hs_sec">
-{{--                    @foreach($tickets as $ticket)--}}
-{{--                        @foreach(json_decode($ticket->ticket_no) as $key => $number)--}}
-{{--                            <div class="at-item">--}}
-{{--                                <div class="at-title">--}}
-{{--                                    <div class="order_hs_innersec">--}}
-{{--                                        <p class="oh_ticknumber" > <label> Ticket No : </label> {{$number}}</p>--}}
-{{--                                        <p class="status cancel">Pending</p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="at-tab" @if($count == 1)style="display: block;" @endif>--}}
-{{--                                    <div class="acc_or_con">--}}
-{{--                                        <div class="acc_col_4 ord_his_acc_rk">--}}
-{{--                                            <label> Name </label>--}}
-{{--                                            <span>{{$ticket->user->name}}</span>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="acc_col_4 ord_his_acc_rk">--}}
-{{--                                            <label> Chance</label>--}}
-{{--                                            @foreach(json_decode($ticket->chances) as $chances)--}}
-{{--                                            <span>{{$chances}}</span>--}}
-{{--                                            @endforeach--}}
-{{--                                        </div>--}}
-{{--                                        <div class="acc_col_4 ord_his_acc_rk">--}}
-{{--                                            <label> Ticket Price</label>--}}
-{{--                                            <span>{{$ticket->ticket_amount}}</span>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="acc_col_4 ord_his_acc_rk">--}}
-{{--                                            <label> Placed at</label>--}}
-{{--                                            <span>{{date('d-m-Y', strtotime($ticket->created_at))}}</span>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            @php--}}
-{{--                                $count++;--}}
-{{--                            @endphp--}}
-{{--                        @endforeach--}}
-{{--                    @endforeach--}}
+            <div class="accordion order_hs_sec">
+                <div class="or_hs_no">
+                    <img src="{{asset('/img/search.png')}}" class="cart" alt="cart">
+                    <span>Search By Ticket No.</span>
                 </div>
-{{--            @else--}}
-{{--                <div class="or_hs_no">--}}
-{{--                    <span>No data found</span>--}}
-{{--                </div>--}}
-{{--            @endif--}}
+            </div>
         @else
             <div class="or_hs_no">
                 <span>No data found</span>
@@ -118,13 +76,14 @@
             success: function (response) {
                 let html='';
                 let count = 1;
-                $.each(response, function( index, value ) {
-                    html += `<div class="at-item">
+                if(response.length != 0){
+                    $.each(response, function( index, value ) {
+                        html += `<div class="at-item">
                             <div class="at-title">
                                 <div class="order_hs_innersec">
                                     <p class="oh_ticknumber" > <label> ${value.user.name.toLowerCase().replace(/\b[a-z]/g, function(letter) {
-                                                                            return letter.toUpperCase();
-                                                                        })} </label></p>
+                            return letter.toUpperCase();
+                        })} </label></p>
                                     <p class="status">${$.datepicker.formatDate('dd-mm-yy', new Date(value.created_at))}</p>
                                 </div>
                             </div>
@@ -140,25 +99,31 @@
                                     </div>
                                     <div class="acc_col_4 ord_his_acc_rk">
                                         <label> Ticket No </label>`;
-                                        $.each(JSON.parse(value.ticket_no),function(i,v){
-                                            if(v == ticket_no){
-                                                html += `<span style="color: red">${v}</span>`;
-                                            }else{
-                                                html += `<span>${v}</span>`;
-                                            }
-                                        })
-                                    html += `</div>
+                        $.each(JSON.parse(value.ticket_no),function(i,v){
+                            if(v == ticket_no){
+                                html += `<span style="color: red">${v}</span>`;
+                            }else{
+                                html += `<span>${v}</span>`;
+                            }
+                        })
+                        html += `</div>
                                     <div class="acc_col_4 ord_his_acc_rk">
                                         <label> Chance</label>`;
-                                        $.each(JSON.parse(value.chances),function(i,v){
-                                            html += `<span>${v}</span>`;
-                                        })
-                                    html += `</div>
+                        $.each(JSON.parse(value.chances),function(i,v){
+                            html += `<span>${v}</span>`;
+                        })
+                        html += `</div>
                                 </div>
                             </div>
                         </div>`;
-                    count++;
-                });
+                        count++;
+                    });
+                }else{
+                    html += `<div class="or_hs_no">
+                        <img src="{{asset('/img/no_data.png')}}" class="cart" alt="cart">
+                        <span>No data found</span>
+                    </div>`;
+                }
                 $('.accordion.order_hs_sec').html(html)
             }
         });
