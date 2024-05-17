@@ -6,6 +6,7 @@
         <a class="icon_arr" onclick="window.history.back();"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> </a>
         <h1 class="payment_h1">Payment</h1>
     </div>
+    <a href="{{route('ticket')}}">add ticket</a>
     <div class="summaary_cart_con" style="">
         <div class="shoping_cart">
             <div class="shoping_c_left">Summary</div>
@@ -18,14 +19,17 @@
             <div class="sc_series"> Chance</div>
             <div class="sc_amount"> Amount</div>
         </div>
-        @foreach(json_decode($tickets->ticket_no) as $key => $number)
-            <div class="shoping_cart_head">
-                <div class="sc_name">{{$number}}</div>
-                <div class="sc_series"> {{json_decode($tickets->chances)[$key]}}</div>
-                <div class="sc_amount"> {{$tickets->ticket_amount}}</div>
-                <div class="sc_del"> <i class="fa fa-minus-circle delete_icon" aria-hidden="true"></i></div>
-            </div>
+        @foreach($tickets as $ticket)
+            @foreach(json_decode($ticket['ticket_no']) as $key => $number)
+                <div class="shoping_cart_head">
+                    <div class="sc_name">{{$number}}</div>
+                    <div class="sc_series"> {{json_decode($ticket['chances'])[$key]}}</div>
+                    <div class="sc_amount"> {{$ticket['ticket_amount']}}</div>
+                    <div class="sc_del"> <i class="fa fa-minus-circle delete_icon" aria-hidden="true"></i></div>
+                </div>
+            @endforeach
         @endforeach
+        
 
 {{--        <div class="shoping_cart_head nodata_found">--}}
 {{--            <div class="No_found">No Data Found</div>--}}
@@ -37,7 +41,7 @@
     </div>
     <div class="totalsumm_con">
         <p class="total_summ_p"> Total amount</p>
-        <div class="summ_inr_con"><i class="fa fa-inr" aria-hidden="true"></i>{{indian_currency_for($tickets->total)}}</div>
+        <div class="summ_inr_con"><i class="fa fa-inr" aria-hidden="true"></i>{{indian_currency_for($tickets)}}</div>
     </div>
     <button class="summary_choose_btn" id="payment">Pay</button>
 @endsection

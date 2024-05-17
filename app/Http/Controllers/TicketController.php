@@ -23,26 +23,29 @@ class TicketController extends Controller
 
     public function summary(Request $request)
     {
-        $order_no = session()->has('order_id')? session()->get('order_id'): false;
-        if($order_no){
-            $orders = Order::find($order_no);
-            $orders->ticket_amount = $request->ticket_amount;
-            $orders->ticket_no = json_encode($request->ticket_no);
-            $orders->chances = json_encode($request->chances);
-            $orders->total = $this->calculate_amount($request->ticket_amount ,$request->chances);
-            $orders->save();
+        // session()->forget('orders');
+        $orders = session()->has('orders')? session()->get('orders'): [];
+        $order_data = [
+            'ticket_amount' => $request->ticket_amount,
+            'ticket_no' => json_encode($request->ticket_no),
+            'chances' => json_encode($request->chances),
+            'total' => $this->calculate_amount($request->ticket_amount ,$request->chances),
+        ];
+        if(isset($orders) && count($orders) > 0 && $this->is_value_present($orders,$request->ticket_amount)){
+            $dat = $this->get_value_present($orders,$request->ticket_amount);
+            Order::where('order_no',(string)$dat['order_no'])->update($order_data);
+            $orders[(string)$dat['order_no']]['ticket_amount'] = $request->ticket_amount;
+            $orders[(string)$dat['order_no']]['ticket_no'] = json_encode($request->ticket_no);
+            $orders[(string)$dat['order_no']]['chances'] = json_encode($request->chances);
+            $orders[(string)$dat['order_no']]['total'] = $this->calculate_amount($request->ticket_amount ,$request->chances);
         }else{
-            $orders = new Order();
-            $orders->user_id = Auth::user()->id;
             $order_no = random_int(100000, 999999);
-            $orders->order_no = $order_no;
-            $orders->ticket_amount = $request->ticket_amount;
-            $orders->ticket_no = json_encode($request->ticket_no);
-            $orders->chances = json_encode($request->chances);
-            $orders->total = $this->calculate_amount($request->ticket_amount ,$request->chances);
-            $orders->payment_status = 1;
-            $orders->save();
-            session()->put('order_id',$order_no);
+            $order_data['user_id'] = Auth::user()->id;
+            $order_data['order_no'] = $order_no;
+            $order_data['payment_status'] = 1;
+            $order = Order::create($order_data);
+            $orders = $orders+[$order_no => $order_data];
+            session()->put('orders',$orders);
         }
         return view('summary',['tickets' => $orders]);
     }
@@ -56,10 +59,28 @@ class TicketController extends Controller
         return $amount;
     }
 
+    public function get_value_present($arrayOfArrays, $value) {
+        foreach ($arrayOfArrays as $array) {
+            if (in_array($value, $array)) {
+                return $array;
+            }
+        }
+        return null;
+    }
+
+    public function is_value_present($arrayOfArrays, $value) {
+        foreach ($arrayOfArrays as $array) {
+            if (in_array($value, $array)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function makePayment(Request $request)
     {
         //update payment status whether they have paid or not
-        session()->forget('order_id');
+        session()->forget('orders');
         return Response()->json([
             'status' => 200,
         ]);
