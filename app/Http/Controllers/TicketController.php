@@ -38,6 +38,7 @@ class TicketController extends Controller
             $orders[(string)$dat['order_no']]['ticket_no'] = json_encode($request->ticket_no);
             $orders[(string)$dat['order_no']]['chances'] = json_encode($request->chances);
             $orders[(string)$dat['order_no']]['total'] = $this->calculate_amount($request->ticket_amount ,$request->chances);
+            session()->put('orders',$orders);
         }else{
             $order_no = random_int(100000, 999999);
             $order_data['user_id'] = Auth::user()->id;

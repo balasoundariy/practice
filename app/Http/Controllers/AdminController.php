@@ -59,18 +59,23 @@ class AdminController extends Controller
 
     public function getOrdersHistory(Request $request)
     {
-        $tickets = Order::with('user');
-        $tickets = $tickets->when($request->filled('order_no'), function ($query) use ($request) {
-            $query->where('order_no', $request->order_no);
-        });
-        $tickets = $tickets->when($request->filled('ticket_no'), function ($query) use ($request) {
-            $query->whereJsonContains('ticket_no', $request->ticket_no);
-        });
-        $tickets = $tickets->get();
-        if (isset($request->ticket_no) || isset($request->order_no)){
-            return response()->json($tickets);
+        if ($request->ajax()){
+            if(isset($request->ticket_no) || isset($request->order_no)){
+                $tickets = Order::with('user');
+                $tickets = $tickets->when($request->filled('order_no'), function ($query) use ($request) {
+                    $query->where('order_no', $request->order_no);
+                });
+                $tickets = $tickets->when($request->filled('ticket_no'), function ($query) use ($request) {
+                    $query->whereJsonContains('ticket_no', $request->ticket_no);
+                });
+                $tickets = $tickets->get();
+                return response()->json($tickets);
+            }else{
+                $tickets = [];
+                return response()->json($tickets);
+            }
         }else{
-            return view('admin.orders_history', compact('tickets'));
+            return view('admin.orders_history');
         }
     }
 

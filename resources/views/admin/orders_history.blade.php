@@ -76,7 +76,7 @@
             success: function (response) {
                 let html='';
                 let count = 1;
-                if(response.length != 0){
+                if(response.length != 0 && (ticket_no != '' || order_no != '')){
                     $.each(response, function( index, value ) {
                         html += `<div class="at-item">
                             <div class="at-title">
@@ -118,10 +118,16 @@
                         </div>`;
                         count++;
                     });
-                }else{
+                }else if(response.length == 0 && (ticket_no != '' || order_no != '')){
                     html += `<div class="or_hs_no">
                         <img src="{{asset('/img/no_data.png')}}" class="cart" alt="cart">
                         <span>No data found</span>
+                    </div>`;
+                }
+                else{
+                    html += `<div class="or_hs_no">
+                        <img src="{{asset('/img/search.png')}}" class="cart" alt="cart">
+                        <span>Search By Ticket No.</span>
                     </div>`;
                 }
                 $('.accordion.order_hs_sec').html(html)

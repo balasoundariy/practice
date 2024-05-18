@@ -19,6 +19,9 @@
             <div class="sc_series"> Chance</div>
             <div class="sc_amount"> Amount</div>
         </div>
+        @php
+        $total_amount = 0
+        @endphp
         @foreach($tickets as $ticket)
             @foreach(json_decode($ticket['ticket_no']) as $key => $number)
                 <div class="shoping_cart_head">
@@ -28,8 +31,11 @@
                     <div class="sc_del"> <i class="fa fa-minus-circle delete_icon" aria-hidden="true"></i></div>
                 </div>
             @endforeach
+            @php
+                $total_amount = $total_amount+$ticket['total'];
+            @endphp
         @endforeach
-        
+
 
 {{--        <div class="shoping_cart_head nodata_found">--}}
 {{--            <div class="No_found">No Data Found</div>--}}
@@ -41,7 +47,7 @@
     </div>
     <div class="totalsumm_con">
         <p class="total_summ_p"> Total amount</p>
-        <div class="summ_inr_con"><i class="fa fa-inr" aria-hidden="true"></i>{{indian_currency_for($tickets)}}</div>
+        <div class="summ_inr_con"><i class="fa fa-inr" aria-hidden="true"></i>{{indian_currency_for($total_amount)}}</div>
     </div>
     <button class="summary_choose_btn" id="payment">Pay</button>
 @endsection
