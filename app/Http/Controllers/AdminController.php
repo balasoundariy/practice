@@ -79,9 +79,54 @@ class AdminController extends Controller
         }
     }
 
-    public function settlements()
+    public function settlements(Request $request)
     {
-        return view('admin.settlements');
+        if ($request->ajax()){
+            if(isset($request->ticket_no)){
+                list($hundreds, $tens, $units) = $this->separateDigits($request->ticket_no);
+                $numberString = "$hundreds$tens$units";
+                $numbers = [
+                    $numberString,
+                    "$tens$units",
+                    "$units"
+                ];
+                $uniqueRecords = [];
+                $matchedValues = [];
+                foreach ($numbers as $number) {
+                    $tickets = Order::with('user')
+                    ->whereRaw('JSON_UNQUOTE(JSON_SEARCH(ticket_no, "one", "%' . $number . '")) IS NOT NULL')
+                    ->get();
+                    foreach ($tickets as $record) {
+                        $jsonData = json_decode($record->ticket_no, true);
+                        foreach ($jsonData as $key => $value) {
+                            if (substr($value, -strlen($number)) === $number && !in_array($value,$matchedValues)) {
+                                $uniqueRecords[$record->user_id][$number] = [];
+                                array_push($uniqueRecords[$record->user_id][$number],$record); // Use the id as key to ensure uniqueness
+                                array_push($matchedValues, $value);
+                            }
+                        }
+                    }
+                }
+                return response()->json($uniqueRecords);
+            }else{
+                $tickets = [];
+                return response()->json($tickets);
+            }
+        }else{
+            return view('admin.settlements');
+        }
+    }
+
+    public function separateDigits($number) {
+        if ($number < 100 || $number > 999) {
+            throw new InvalidArgumentException("The input must be a three-digit number.");
+        }
+    
+        $hundreds = intval($number / 100);
+        $tens = intval(($number % 100) / 10);
+        $units = $number % 10;
+    
+        return [$hundreds, $tens, $units];
     }
 
     public function export(Request $request)

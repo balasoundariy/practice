@@ -20,7 +20,11 @@
     </div>
     <div class="main_container admin_panel_edittic" style="padding-top: 0px">
         @auth()
-            <div class="accordion order_hs_sec">
+                <div class="accordion order_hs_sec">
+                <div class="or_hs_no">
+                    <img src="{{asset('/img/search.png')}}" class="cart" alt="cart">
+                    <span>Search By Ticket No.</span>
+                </div>
             </div>
         @else
             <div class="or_hs_no">
@@ -50,6 +54,77 @@
                 .removeClass("active");
         });
     });
+
+    $('#ticket_no').on('change',function () {
+        let ticket = $('#ticket_no').val();
+        filter_data(ticket)
+    })
+
+    function filter_data(ticket_no){
+        $.ajax({
+            url: '{{route("settlements")}}',
+            type: 'GET',
+            data: {
+                ticket_no:ticket_no
+            },
+            success: function (response) {
+                console.log(response);
+                let html='';
+                let count = 1;
+                if(response.length != 0 && ticket_no != ''){
+                    $.each(response, function( u_i, ticket_no ) {
+                        $.each(ticket_no, function(t_no,t_data){
+                            $.each(t_data, function(index,data){
+                                html += `<div class="at-item">
+                                        <div class="at-title">
+                                            <div class="order_hs_innersec">
+                                                <p class="oh_ticknumber" > <label> ${data.user.name.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+                                        return letter.toUpperCase();
+                                    })} </label></p>
+                                                <p class="status">${$.datepicker.formatDate('dd-mm-yy', new Date(data.created_at))}</p>
+                                            </div>
+                                        </div>
+                                        <div class="at-tab" ${ count == 1 ? 'style="display: block;"' :"" }>
+                                            <div class="acc_or_con">
+                                                <div class="acc_col_4 ord_his_acc_rk">
+                                                    <label> Mobile No </label>
+                                                    <span>${data.user.mobile_no}</span>
+                                                </div>
+                                                <div class="acc_col_4 ord_his_acc_rk">
+                                                    <label> Ticket Price</label>
+                                                    <span>${data.ticket_amount}</span>
+                                                </div>
+                                                <div class="acc_col_4 ord_his_acc_rk">
+                                                    <label> Ticket No </label>
+                                                    <span>${t_no}</span>
+                                                </div>
+                                                <div class="acc_col_4 ord_his_acc_rk">
+                                                    <label> winning amount</label>
+                                                    <span>0</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>`;
+                                    count++;
+                            })
+                        })
+                    });
+                }else if(response.length == 0 && ticket_no != ''){
+                    html += `<div class="or_hs_no">
+                        <img src="{{asset('/img/no_data.png')}}" class="cart" alt="cart">
+                        <span>No data found</span>
+                    </div>`;
+                }
+                else{
+                    html += `<div class="or_hs_no">
+                        <img src="{{asset('/img/search.png')}}" class="cart" alt="cart">
+                        <span>Search By Ticket No.</span>
+                    </div>`;
+                }
+                $('.accordion.order_hs_sec').html(html)
+            }
+        });
+    }
 
     $('#exportBtn').on('click', function () {
         let ticket_no = $('#ticket_no').val();
