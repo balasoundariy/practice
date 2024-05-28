@@ -92,21 +92,67 @@ class AdminController extends Controller
                 ];
                 $uniqueRecords = [];
                 $matchedValues = [];
+                $win_info = [];
                 foreach ($numbers as $number) {
                     $tickets = Order::with('user')
                     ->whereRaw('JSON_UNQUOTE(JSON_SEARCH(ticket_no, "one", "%' . $number . '")) IS NOT NULL')
                     ->get();
                     foreach ($tickets as $record) {
+                        if(!isset($win_info[$record->user_id])){
+                            $win_info[$record->user_id] = [];
+                        }
+                        $data = [
+                            'user_name' => $record->user->name,
+                            'mobile_no' => $record->user->mobile_no,
+                            'ticket_amount' => $record->ticket_amount,
+                        ];
+                            
+                        $win_info[$record->user_id] = $data;
+                        
                         $jsonData = json_decode($record->ticket_no, true);
                         foreach ($jsonData as $key => $value) {
-                            if (substr($value, -strlen($number)) === $number && !in_array($value,$matchedValues)) {
-                                $uniqueRecords[$record->user_id][$number] = [];
-                                array_push($uniqueRecords[$record->user_id][$number],$record); // Use the id as key to ensure uniqueness
+                            if (substr($value, -strlen($number)) === $number) {
+                                $numlength = strlen((string)$number);
+                                
+                                if(!isset($win_info[$record->user_id]['winning_details'])){
+                                    
+                                    $win_info[$record->user_id]['winning_details'] = [];
+                                    
+                                }
+                                
+                                if($numlength == 3){
+                                    if($record->ticket_amount == 60){
+                                        // $win_info['winning_details'][$value] = 25000;
+                                        $win_info[$record->user_id]['winning_details'][] = [$value => 25000];
+                                    }else{
+                                        // $win_info['winning_details'][$value] = 10000;
+                                        $win_info[$record->user_id]['winning_details'][] = [$value => 10000];
+                                        
+                                    }
+                                }else if($numlength == 2){
+                                    // $win_info['winning_details'][$value] = 1000;
+                                    $win_info[$record->user_id]['winning_details'][] = [$value => 1000];
+                                }else{
+                                    if($record->ticket_amount == 60){
+                                        // $win_info['winning_details'][$value] = 100;
+                                        $win_info[$record->user_id]['winning_details'][] = [$value => 100];
+                                    }
+                                }
+                                
+                                // $uniqueRecords[$record->user_id][$number] = [];
+                                // array_push($uniqueRecords[$record->user_id][$number],$record); // Use the id as key to ensure uniqueness
                                 array_push($matchedValues, $value);
                             }
                         }
+                        // dd($win_info);
+                        // if(!empty($win_info) && isset($win_info[$record->user_id]['winning_details'])){
+                        //     array_push($uniqueRecords,$win_info);
+                        // }
+                        
                     }
+                    dd($win_info);
                 }
+                
                 return response()->json($uniqueRecords);
             }else{
                 $tickets = [];
